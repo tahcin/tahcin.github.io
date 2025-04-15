@@ -96,12 +96,12 @@ i { /* Basic icon styling */
 }
 .btn i { margin-left: 5px; font-size: 1.1em;} /* Style icons in buttons */
 .btn-primary { background-color: var(--primary-color); color: var(--white); margin-right: 10px;}
-.btn-primary:hover { background-color: #444; transform: translateY(-2px); }
+.btn-primary:hover { background-color: #444; transform: translateY(-2px); color: var(--white);}
 .btn-secondary { background-color: transparent; color: var(--primary-color); border: 1px solid var(--border-color); padding-left: 20px; padding-right: 20px;}
 .btn-secondary:hover { background-color: var(--white); border-color: var(--primary-color); }
 .btn-secondary i { margin-left: 5px; }
 .btn-dark { background-color: var(--primary-color); color: var(--white); }
-.btn-dark:hover { background-color: #444; }
+.btn-dark:hover { background-color: #444; color: var(--white);}
 
 
 /* --- Header / Hero Section --- */
@@ -1176,12 +1176,24 @@ i { /* Basic icon styling */
 
 .gradient-text {
     background: linear-gradient(90deg, #ff3c8e, #a145f4, #1e90ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* For Firefox */
-    background-clip: text;
-    color: transparent;
-  }
+    background-size: 300% 100%;
+    background-repeat: repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      animation: moveGradient 3s linear infinite alternate;
+      display: inline-block;
+    }
+
+    @keyframes moveGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
 
   
 
