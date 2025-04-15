@@ -142,7 +142,7 @@ i { /* Basic icon styling */
     align-items: center;
 }
 .main-nav .nav-links-container a {
-    margin-left: 0px;
+    margin-left: 30px;
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--text-color);
@@ -1151,6 +1151,9 @@ i { /* Basic icon styling */
         visibility: hidden;
         will-change: transform;
     }
+    .main-nav .nav-links-container a {
+        margin-left: 0;
+    }
     .nav-links-container.active {
         transform: translateX(0);
         visibility: visible;
@@ -1158,7 +1161,7 @@ i { /* Basic icon styling */
     }
     .nav-links-container.active .nav-close-btn { display: block; } /* Show close button */
     .nav-links-container a { /* Styles for links *within* the sidebar */
-        margin: 0;
+        margin: 0px;
         padding: 15px 30px;
         font-size: 1rem;
         font-weight: 600;
