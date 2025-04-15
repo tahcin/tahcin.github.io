@@ -1,5 +1,3 @@
-// --- START OF FILE script.js ---
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Mobile Navigation Toggle ---
@@ -8,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinksContainer = document.getElementById('navLinksContainer');
     const navOverlay = document.getElementById('navOverlay');
     const navLinks = document.querySelectorAll('#navLinksContainer .nav-link');
-    const body = document.body; // Use a more specific name later if needed
+    const body = document.body; 
 
     const openNav = () => {
         if (navLinksContainer && navOverlay && body) {
             navLinksContainer.classList.add('active');
             navOverlay.classList.add('active');
-            body.classList.add('body-no-scroll'); // Use this class
+            body.classList.add('body-no-scroll'); 
         } else {
             console.error("Error: Navigation elements not found for opening.");
         }
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navLinksContainer && navOverlay && body) {
             navLinksContainer.classList.remove('active');
             navOverlay.classList.remove('active');
-            // Check if popup is *also* active before removing the class
             if (!formPopupOverlay || !formPopupOverlay.classList.contains('active')) {
                  body.classList.remove('body-no-scroll');
             }
@@ -125,8 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeElements.forEach(el => {
             fadeInObserver.observe(el);
         });
-        triggerInitialFadeIn(); // Trigger check immediately for elements already in view
-    } else {
+        triggerInitialFadeIn(); 
         console.warn("No elements found for fade-in animation with class 'js-fade-in'.");
     }
     // --- End Fade-in Animation ---
@@ -165,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const formPopup = document.getElementById('formPopup');
     const formPopupMessage = document.getElementById('formPopupMessage');
     const formPopupCloseBtn = document.getElementById('formPopupCloseBtn');
-    // body variable already declared for nav
 
     const showPopup = (message, isSuccess = true) => {
         if (!formPopupOverlay || !formPopupMessage || !formPopup || !body) {
@@ -184,13 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         formPopupOverlay.classList.add('active');
-        body.classList.add('body-no-scroll'); // Use the same class as nav
+        body.classList.add('body-no-scroll'); 
     };
 
     const hidePopup = () => {
         if (!formPopupOverlay || !body) return;
         formPopupOverlay.classList.remove('active');
-        // Only remove scroll lock if nav menu is *also* not active
         if (!navLinksContainer || !navLinksContainer.classList.contains('active')) {
             body.classList.remove('body-no-scroll');
         }
@@ -211,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && formPopupOverlay && formPopupOverlay.classList.contains('active')) {
             hidePopup();
         }
-        // Also handle escape key for nav menu (already added earlier)
     });
     // --- End Popup Handling ---
 
@@ -259,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form-real');
     const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
     const responseNote = contactForm ? contactForm.querySelector('.response-note') : null;
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiAeS-scT3mzQtnSOLa6icZumojg2XGcqqw6OQBXh-YEPI0bYT15ppzmMuBRxNLdKG/exec'; // Ensure this is correct
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiAeS-scT3mzQtnSOLa6icZumojg2XGcqqw6OQBXh-YEPI0bYT15ppzmMuBRxNLdKG/exec'; 
 
     if (contactForm && submitButton && SCRIPT_URL) {
         contactForm.addEventListener('submit', async (e) => {
@@ -329,7 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton.disabled = false;
                 submitButton.innerHTML = originalButtonText;
                 if (responseNote) responseNote.textContent = "I will get back to you within 24 hours.";
-                // Do NOT hide the popup here, let the user do it.
             }
             // --- End Submission Logic ---
         });
@@ -340,4 +332,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- End Contact Form Submission ---
 
-}); // End DOMContentLoaded
+});

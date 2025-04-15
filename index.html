@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Tahcin Sarwar</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Add Google Fonts (Example: Poppins) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Add Remix Icon CDN -->
+    <!-- Remix Icon CDN -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
@@ -24,10 +24,8 @@
                  <button class="nav-close-btn" id="navCloseBtn" aria-label="Close navigation menu">
                     <i class="ri-close-line"></i>
                 </button>
-                <!-- NOTE: Removed #skills link as there's no skills section -->
                 <a href="#skills" class="nav-link">Skills <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
                 <a href="#experience" class="nav-link">Experience <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
-                <!-- ADDED Education Link -->
                 <a href="#education" class="nav-link">Education <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
                 <a href="#portfolio" class="nav-link">Projects <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
                 <a href="#contact" class="nav-link">Contact <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
@@ -39,7 +37,6 @@
             </button>
         </nav>
         <div class="hero-content">
-            <!-- Add js-fade-in to hero text and image -->
             <div class="hero-gradient-2"></div>
             <div class="hero-text js-fade-in">
                 <span class="waving-hand">👋</span>
@@ -53,19 +50,16 @@
                 </ul>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Let's Talk</a>
-                    <!-- Added placeholder for actual CV link -->
                     <a href="resume.pdf" download="Tahcin_Sarwar_Resume.pdf" class="btn btn-secondary">Download CV <span class="download-icon"><i class="ri-download-2-line"></i></span></a>
                 </div>
                  <div class="hello-graphic">Hello</div>
             </div>
             <div class="hero-image-container js-fade-in">
                  <div class="hero-gradient"></div>
-                 <!-- Updated alt text -->
                 <img src="photo.png" alt="Portrait of Tahcin Sarwar" class="hero-photo">
                 <div class="hero-squiggle"></div>
             </div>
         </div>
-        <!-- js-fade-in already applied to containers that appear on scroll -->
         <div class="hero-tags-container js-fade-in">
             <div class="hero-tags-scroll-wrapper">
                 <div class="hero-tags-scroll">
@@ -95,23 +89,20 @@
              <a href="https://linkedin.com/in/tahcinsarwar/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-box-fill"></i> LINKEDIN</a>
              <a href="https://github.com/tahcin"><i class="ri-github-fill"></i> GITHUB</a><br/>
              <!-- <a href="#"><i class="ri-twitter-fill"></i> TWITTER</a> -->
-             <!-- Updated Email -->
              <a href="mailto:mohammadb24@iimb.ac.in" class="email-link"><i class="ri-mail-line"></i> mohammadb24@iimb.ac.in</a>
         </div>
     </header>
 
     <main>
-        <!-- WHAT I'M OFFERING SECTION (Reframed slightly for PM) -->
+        <!-- WHAT I'M OFFERING SECTION  -->
         <section id="skills" class="services-section js-fade-in">
             <div class="section-header">
                 <div>
-                    <!-- Updated Subtitle and Title -->
                     <p class="subtitle">SKILLS IN ACTION</p>
                     <h2>WHAT I BRING TO THE TABLE</h2>
                     <p class="section-description">A unique blend of product intuition, full-stack creativity, and startup hustle—everything I use to build things that matter.</p>
 
                  </div>
-                 <!-- Updated button text, points to portfolio -->
                  <a href="#portfolio" class="btn btn-dark">VIEW PROJECTS</a>
             </div>
              <div class="scroll-down-indicator">
@@ -212,13 +203,12 @@
                     </div>
                 </div>
             </div>
-             <!-- End .roadmap-list -->
         </section>
 
         <!-- EDUCATION SECTION -->
         <section id="education" class="education-section js-fade-in">
             <div class="section-header text-center">
-                 <div class="education-graphic"> <!-- New graphic element -->
+                 <div class="education-graphic"> 
                      <i class="ri-graduation-cap-line"></i>
                 </div>
                 <h2>ACADEMIC BACKGROUND</h2>
@@ -227,7 +217,7 @@
             <div class="education-grid">
                 <article class="education-item js-fade-in">
                     <div class="education-icon-wrapper">
-                        <i class="ri-book-open-line"></i>
+                        <i class="ri-briefcase-line"></i>
                     </div>
                     <div class="education-content">
                         <span class="education-dates">2024 - Present</span>
@@ -255,7 +245,6 @@
         <section id="portfolio" class="portfolio-section js-fade-in">
             <div class="section-header text-center">
                 <div class="section-dots-graphic"></div>
-                 <!-- Updated Title -->
                  <h2>PROJECT HIGHLIGHTS</h2>
                  <p class="section-description">Showcasing applications of product thinking and strategic execution.</p>
             </div>
@@ -321,9 +310,7 @@
         </section>
 
         <!-- STATS SECTION -->
-        <!-- Note: js-fade-in REMOVED from section tag -->
         <section id="stats" class="stats-section">
-            <!-- Note: js-fade-in ADDED to each child -->
             <div class="stat-item js-fade-in">
                  <div class="stat-icon"><i class="ri-checkbox-multiple-line"></i></div>
                 <span class="stat-number" data-target="4500">0</span>
@@ -344,7 +331,6 @@
 
         <!-- CONTACT SECTION -->
         <section id="contact" class="contact-section js-fade-in">
-             <!-- Updated Title and Subtitle -->
             <h2><span class="highlight-text">Let's Connect!</span><br/> <span class="gradient-text">discuss opportunities or ideas</span></h2>
             <p class="contact-subtitle">Interested in collaborating or have a project in mind? Reach out!</p>
              <div class="contact-arrow"></div>
@@ -364,7 +350,6 @@
                     <input type="text" id="company" name="company" placeholder="Associated company or project idea">
                 </div>
                  <div class="form-group">
-                     <!-- Updated Label and Tags -->
                      <label>Areas of Interest:*</label>
                      <div class="tag-selection">
                         <button type="button" class="tag-btn">Product Strategy</button>
@@ -377,7 +362,6 @@
                      </div>
                      <input type="hidden" name="selected_services" id="selected_services">
                  </div>
-                <!-- Optional Message field added -->
                 <div class="form-group">
                     <label for="message">Your Message (Optional)</label>
                     <textarea id="message" name="message" rows="4" placeholder="Tell me more about what you're thinking..."></textarea>
@@ -388,7 +372,6 @@
                          Send Message
                          <span class="submit-arrow"></span>
                     </button>
-                     <!-- Updated Response Note -->
                     <p class="response-note">I will try to get back to you within 24 hours.</p>
                  </div>
             </form>
@@ -400,7 +383,6 @@
         <div class="footer-links">
             <a href="https://linkedin.com/in/tahcinsarwar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/tahcin" target="_blank" rel="noopener noreferrer"> Github</a>
-            <!-- Keep other relevant links if any -->
              <!-- <a href="#instagram-placeholder">Instagram</a> -->
         </div>
         <p class="copyright">Tahcin Sarwar © <script>document.write(new Date().getFullYear())</script></p>
@@ -414,14 +396,12 @@
         <i class="ri-arrow-up-line"></i>
     </button>
 
-    <!-- START: Form Submission Popup -->
     <div id="formPopupOverlay" class="form-popup-overlay">
         <div id="formPopup" class="form-popup">
             <p id="formPopupMessage" class="form-popup-message">Your message here.</p>
             <button id="formPopupCloseBtn" class="btn btn-primary form-popup-close-btn">OK</button>
         </div>
     </div>
-    <!-- END: Form Submission Popup -->
 
     <script src="script.js"></script>
 </body>
