@@ -19,7 +19,7 @@
 
     --font-primary: 'Poppins', sans-serif;
     --container-width: 1140px;
-    --nav-height: 70px; /* Define nav height */
+    --nav-height: 60px; /* Define nav height */
 }
 
 * {
@@ -1312,7 +1312,7 @@ i { /* Basic icon styling */
     .client-squiggle { margin: 0 auto 20px auto;}
     .contact-section h2 { font-size: 2.5rem; }
     .site-footer {  text-align: center;}
-    .copyright { order: 2; margin-top: 10px; }
+    .copyright { order: 2; margin-top: 0px; }
     .footer-links { order: 1; justify-content: center; }
     .back-to-top-btn { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 1.2rem; }
 }
