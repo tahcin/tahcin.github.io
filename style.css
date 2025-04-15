@@ -142,7 +142,7 @@ i { /* Basic icon styling */
     align-items: center;
 }
 .main-nav .nav-links-container a {
-    margin-left: 30px;
+    margin-left: 0px;
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--text-color);
