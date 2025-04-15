@@ -42,7 +42,7 @@ body {
     position: relative; /* Needed for overlay/sidebar interaction */
 }
 
-/* Utility class to prevent scrolling when sidebar is open */
+/* Utility class to prevent scrolling when sidebar/popup is open */
 .body-no-scroll {
     overflow: hidden;
 }
@@ -108,37 +108,34 @@ i { /* Basic icon styling */
 
 /* --- Header / Hero Section --- */
 .hero {
-    /* UPDATED: Add top padding equal to nav height */
-    padding: var(--nav-height) 15% 60px 15%; /* Added top padding, adjust bottom as needed */
+    padding: var(--nav-height) 15% 60px 15%;
     position: relative;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box; /* Ensure padding is included correctly */
-    min-height: 95vh; /* Restore min-height if desired */
+    box-sizing: border-box;
+    min-height: 95vh;
 }
 
 .main-nav {
-    /* --- Fixed Styles --- */
-    position: fixed;        /* Fix position relative to viewport */
-    top: 0;                 /* Stick to the top */
-    left: 0;                /* Align to the left edge */
-    right: 0;               /* Align to the right edge (ensures full width) */
-    z-index: 1000;          /* Ensure it stays above other content */
-    height: var(--nav-height); /* Give it an explicit height */
-    background-color: rgba(255, 255, 255, 0.95); /* White background, 95% opacity */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Subtle shadow for separation */
-    display: flex;          /* Use flex for layout */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--nav-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15%;         /* Apply horizontal padding consistent with hero */
+    padding: 0 15%;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main-nav .logo { font-weight: 800; font-size: 1.5rem; }
 
-/* Desktop Navigation Links Container (inside .main-nav but styled independently for sidebar functionality) */
 .main-nav .nav-links-container {
-    display: flex; /* visible on desktop */
+    display: flex;
     align-items: center;
 }
 .main-nav .nav-links-container a {
@@ -160,9 +157,8 @@ i { /* Basic icon styling */
     transform: translate(3px, -3px);
 }
 
-/* Mobile Nav Toggle Button */
 .nav-toggle-btn {
-    display: none; /* Hidden on desktop */
+    display: none;
     background: none;
     border: none;
     font-size: 1.8rem;
@@ -170,18 +166,16 @@ i { /* Basic icon styling */
     cursor: pointer;
     padding: 5px;
     line-height: 1;
-    z-index: 1001; /* Above fixed nav background */
+    z-index: 1001;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    /* Positioning relative to the fixed nav bar */
-    position: absolute; /* Position relative to the fixed .main-nav */
-    right: 15%;      /* Align with the right padding edge */
-    top: 50%;         /* Center vertically */
-    transform: translateY(-50%); /* Adjust vertical center */
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Mobile Nav Close Button */
 .nav-close-btn {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
     top: 20px;
     right: 25px;
@@ -190,14 +184,13 @@ i { /* Basic icon styling */
     font-size: 1.8rem;
     color: var(--secondary-color);
     cursor: pointer;
-    z-index: 1001; /* Above sidebar content */
+    z-index: 1001;
     line-height: 1;
 }
 .nav-close-btn:hover {
     color: var(--primary-color);
 }
 
-/* Mobile Navigation Overlay */
 .nav-overlay {
     display: block;
     position: fixed;
@@ -206,7 +199,7 @@ i { /* Basic icon styling */
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 998; /* Below sidebar (999) */
+    z-index: 998;
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0.4s;
     pointer-events: none;
@@ -225,7 +218,7 @@ i { /* Basic icon styling */
     align-items: center;
     justify-content: space-between;
     flex-grow: 1;
-    padding: 0 0 50px 0; /* Padding now inside the hero */
+    padding: 0 0 50px 0;
     gap: 40px;
     width: 100%;
 }
@@ -254,7 +247,7 @@ i { /* Basic icon styling */
 .hero-text p { max-width: 500px; margin-bottom: 30px; }
 .hero-checklist { margin-bottom: 30px; }
 .hero-checklist li { margin-bottom: 10px; display: flex; align-items: flex-start; font-weight: 600; font-size: 0.95rem;}
-.hero-checklist .check { color: var(--primary-color); font-weight: bold; margin-right: 10px; font-size: 1.2em; line-height: 1; flex-shrink: 0; margin-top: 3px;} /* Adjusted alignment */
+.hero-checklist .check { color: var(--primary-color); font-weight: bold; margin-right: 10px; font-size: 1.2em; line-height: 1; flex-shrink: 0; margin-top: 3px;}
 .hello-graphic { display: none; }
 .hero-buttons { display: flex; flex-wrap: wrap; gap: 15px; }
 .hero-buttons .download-icon { display: inline-block; font-weight: bold; margin-left: 5px; }
@@ -286,12 +279,12 @@ i { /* Basic icon styling */
     opacity: 0.5;
     border-radius: 0;
     z-index: 0;
-    animation: blink 3s infinite ease-in-out alternate; /* Added animation */
+    animation: blink 3s infinite ease-in-out alternate;
 }
 .hero-gradient-2 {
     position: absolute;
     top: 400px;
-    left: -200px;
+    left: 200px;
     width: 280px;
     height: 280px;
     background: linear-gradient(-45deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
@@ -299,7 +292,7 @@ i { /* Basic icon styling */
     opacity: 0.4;
     border-radius: 0;
     z-index: 0;
-     animation: blink 3.5s infinite ease-in-out alternate-reverse; /* Added varied animation */
+     animation: blink 3.5s infinite ease-in-out alternate-reverse;
 }
 .hero-squiggle {
     position: absolute;
@@ -321,7 +314,7 @@ i { /* Basic icon styling */
     padding: 30px 0 20px 0;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    margin-top: 60px; /* Adjusted slightly if needed */
+    margin-top: 60px;
     position: relative;
 }
 
@@ -361,7 +354,7 @@ i { /* Basic icon styling */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 25px 0 35px 0; /* Internal padding */
+    padding: 25px 0 35px 0;
     font-size: 0.85rem;
     font-weight: 600;
     gap: 15px;
@@ -942,24 +935,46 @@ i { /* Basic icon styling */
     min-height: 80px;
 }
 ::placeholder { color: #aaa; font-size: 0.95rem;}
-.tag-selection { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;}
+
+/* UPDATED Tag Selection Styles */
+.tag-selection {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line */
+    gap: 10px;       /* Default gap between buttons */
+    margin-top: 10px;
+}
 .tag-btn {
-    padding: 8px 18px;
+    padding: 8px 18px; /* Default padding */
     border: 1px solid var(--border-color);
     background-color: var(--white);
     color: var(--secondary-color);
     border-radius: 0;
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.85rem; /* Default font size */
     font-weight: 500;
     transition: all 0.3s ease;
+    /* Added for accessibility focus */
+    outline-offset: 2px;
 }
 .tag-btn:hover,
+.tag-btn:focus-visible { /* Added focus-visible for keyboard navigation */
+    background-color: #f0f0f0; /* Subtle hover/focus */
+    border-color: #bbb;
+    outline: none; /* Remove default focus outline if you add custom */
+}
 .tag-btn.active {
     background-color: var(--primary-color);
     color: var(--white);
     border-color: var(--primary-color);
 }
+.tag-btn.active:hover,
+.tag-btn.active:focus-visible { /* Ensure hover/focus on active state is distinct or same */
+     background-color: #444; /* Slightly darker on hover/focus when active */
+     border-color: #444;
+     outline: none; /* Remove default focus outline if you add custom */
+}
+/* End Updated Tag Selection Styles */
+
 .submit-area { margin-top: 40px; text-align: center; position: relative; }
 .btn-submit {
     padding: 15px 45px;
@@ -1044,6 +1059,77 @@ i { /* Basic icon styling */
 }
 .back-to-top-btn:hover { background-color: #444; }
 
+/* --- Form Submission Popup Styles --- */
+.form-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100; /* Higher than nav */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    padding: 20px; /* Padding for smaller screens */
+}
+
+.form-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+.form-popup {
+    background-color: var(--white);
+    padding: 35px 45px;
+    border: 1px solid var(--border-color);
+    max-width: 480px;
+    width: 100%; /* Responsive width */
+    text-align: center;
+    border-radius: 0; /* Match sharp edges */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transform: scale(0.95) translateY(10px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.form-popup-overlay.active .form-popup {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.form-popup-message {
+    font-size: 1.1rem;
+    color: var(--text-color); /* Use standard text color */
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Style the close button specifically if needed, otherwise inherits .btn .btn-primary */
+.form-popup-close-btn {
+    margin-top: 0; /* Adjust if needed */
+    min-width: 120px; /* Give it a minimum width */
+    margin-right: 0; /* Reset margin inherited from .btn-primary potentially */
+}
+
+/* Optional: Add specific styling for success/error states */
+.form-popup--success .form-popup-message {
+    /* color: green; */ /* Or keep default */
+}
+.form-popup--error .form-popup-message {
+    /* color: #cc0000; */ /* Example error color */
+    font-weight: 600;
+}
+.form-popup--error .form-popup-close-btn {
+    /* background-color: #cc0000; */ /* Example error button color */
+}
+/* --- End Form Submission Popup Styles --- */
+
 /* --- Animations --- */
 @keyframes wave {
     0% { transform: rotate(0deg); } 10% { transform: rotate(14deg); }
@@ -1080,16 +1166,15 @@ i { /* Basic icon styling */
     h1 { font-size: 3.2rem; }
     h2 { font-size: 2.2rem; }
 
-    .hero { padding: var(--nav-height) 12% 60px 12%; } /* Update padding */
-    .main-nav { padding: 0 12%; } /* Match hero horizontal padding */
-    .nav-toggle-btn { right: 12%; } /* Update toggle position */
+    .hero { padding: var(--nav-height) 12% 60px 12%; }
+    .main-nav { padding: 0 12%; }
+    .nav-toggle-btn { right: 12%; }
 
     .hero-content { gap: 30px; }
     .hero-text { flex-basis: 60%;}
     .hero-image-container { flex-basis: 40%; }
     .hero-gradient-2 { left: -100px; }
 
-    /* Update padding for other sections */
     .services-section,
     .experience-section,
     .education-section,
@@ -1109,14 +1194,13 @@ i { /* Basic icon styling */
     h1 { font-size: 2.8rem; }
     h2 { font-size: 2rem; }
 
-    .hero { padding: var(--nav-height) 8% 50px 8%; } /* Update padding */
-    .main-nav { padding: 0 8%; } /* Match hero horizontal padding */
+    .hero { padding: var(--nav-height) 8% 50px 8%; }
+    .main-nav { padding: 0 8%; }
     .nav-toggle-btn {
-        display: block; /* Show hamburger */
-        right: 8%; /* Match new padding */
+        display: block;
+        right: 8%;
     }
 
-    /* Update padding for other sections */
     .services-section,
     .experience-section,
     .education-section,
@@ -1126,10 +1210,12 @@ i { /* Basic icon styling */
     .stats-section { padding: 50px 8%; }
     .site-footer { padding: 25px 8%; }
 
-    .hero-gradient-2 { display: none; }
+    .hero-gradient-2 {
+        top: 800px;
+        left: -100px;
+    }
 
-    /* --- Mobile Navigation Sidebar Styles --- */
-    /* Desktop links container becomes the sidebar */
+    /* Mobile Navigation Sidebar Styles */
     .main-nav .nav-links-container {
         display: flex;
         flex-direction: column;
@@ -1159,8 +1245,8 @@ i { /* Basic icon styling */
         visibility: visible;
         transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0s;
     }
-    .nav-links-container.active .nav-close-btn { display: block; } /* Show close button */
-    .nav-links-container a { /* Styles for links *within* the sidebar */
+    .nav-links-container.active .nav-close-btn { display: block; }
+    .nav-links-container a {
         margin: 0px;
         padding: 15px 30px;
         font-size: 1rem;
@@ -1192,8 +1278,8 @@ i { /* Basic icon styling */
         pointer-events: none;
     }
 
-    /* --- Adjust other sections for mobile --- */
-    .hero-content { flex-direction: column; text-align: center; padding-top: 40px;} /* Centered hero content below nav */
+    /* Adjust other sections for mobile */
+    .hero-content { flex-direction: column; text-align: center; padding-top: 40px;}
     .hero-text { order: 2; flex-basis: auto; margin-top: 40px; max-width: 600px; text-align: left;}
     .hero-image-container { order: 1; flex-basis: auto; max-width: 350px; margin: 0 auto; }
     .hero-gradient { width: 200px; height: 200px; filter: blur(60px); top: -40px; right: -40px;}
@@ -1237,11 +1323,10 @@ i { /* Basic icon styling */
      h1 { font-size: 2.5rem;}
      h2 { font-size: 1.6rem; }
 
-     .hero { padding: var(--nav-height) 5% 40px 5%; } /* Update padding */
-     .main-nav { padding: 0 5%; } /* Match hero horizontal padding */
-     .nav-toggle-btn { right: 5%; } /* Match new padding */
+     .hero { padding: var(--nav-height) 5% 40px 5%; }
+     .main-nav { padding: 0 5%; }
+     .nav-toggle-btn { right: 5%; }
 
-     /* Update padding for other sections */
     .services-section,
     .experience-section,
     .education-section,
@@ -1262,7 +1347,7 @@ i { /* Basic icon styling */
     .experience-list.roadmap-list { padding-left: 30px; }
     .experience-item.roadmap-item { padding: 20px 25px; }
     .experience-item.roadmap-item::before { left: -25px; width: 12px; height: 12px; border-width: 2px; box-shadow: 0 0 0 2px var(--primary-color); }
-    .experience-item.highlight-experience::before { box-shadow: 0 0 0 2px var(--white); }
+    .experience-item.highlight-experience::before { box-shadow: 0 0 0 2px var(--primary-color); }
     .education-graphic { width: 50px; height: 50px; font-size: 1.8rem;}
     .education-item { gap: 15px; padding: 20px; }
     .education-icon-wrapper i { font-size: 2rem; }
@@ -1282,11 +1367,9 @@ i { /* Basic icon styling */
      h1 { font-size: 2.1rem; }
      h2 { font-size: 1.4rem; }
      .main-nav .logo { font-size: 1.3rem;}
-     .nav-toggle-btn { font-size: 1.6rem; /* Existing */ /* Position inherits 5% from above */ }
+     .nav-toggle-btn { font-size: 1.6rem; }
 
-     /* Optional: Reduce nav height */
-     /* :root { --nav-height: 60px; } */ /* Uncomment and test */
-     /* Hero padding will auto-adjust if --nav-height changes */
+     /* :root { --nav-height: 60px; } */ /* Optional: Reduce nav height */
 
      .services-section,
     .experience-section,
@@ -1300,7 +1383,7 @@ i { /* Basic icon styling */
     .hero-text p { font-size: 0.95rem; }
     .btn { padding: 10px 25px; font-size: 0.85rem;}
     .hero-buttons { flex-direction: column; gap: 15px; }
-    .hero-buttons .btn { margin-right: 0; width: auto; min-width: 200px; /* Prevent very narrow buttons */}
+    .hero-buttons .btn { margin-right: 0; width: auto; min-width: 200px; }
     .hero-image-container { max-width: 260px; }
 
     .services-grid { gap: 25px;}
@@ -1309,8 +1392,8 @@ i { /* Basic icon styling */
 
     /* Roadmap Mobile Extra Small */
     .experience-list.roadmap-list { padding-left: 25px; margin-top: 40px; }
-    .experience-item.roadmap-item::before { display: none; } /* Hide node */
-    .experience-list.roadmap-list::before { left: 10px; width: 2px; } /* Bar closer to edge */
+    .experience-item.roadmap-item::before { display: none; }
+    .experience-list.roadmap-list::before { left: 10px; width: 2px; }
     .experience-item.roadmap-item { border-left: 3px solid var(--border-color); padding-left: 20px; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
     .experience-item.highlight-experience { border-left-color: var(--primary-color); }
 
@@ -1330,10 +1413,34 @@ i { /* Basic icon styling */
     .stats-section { grid-template-columns: 1fr; gap: 25px; }
     .contact-section h2 { font-size: 2rem; }
     .highlight-text { padding: 1px 6px; }
-    .tag-selection { gap: 8px; }
-    .tag-btn { font-size: 0.8rem; padding: 6px 12px; }
+
+    /* UPDATED Tag Selection Mobile Styles */
+    .tag-selection {
+        gap: 8px 6px;
+    }
+    .tag-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    /* End Updated Tag Selection Mobile Styles */
+
     .submit-arrow { display: none; }
     .btn-submit { padding: 12px 30px; width: 100%; max-width: 280px;}
+
+    /* Popup mobile adjustments */
+    .form-popup {
+        padding: 25px 30px; /* Reduce padding */
+    }
+    .form-popup-message {
+        font-size: 1rem; /* Slightly smaller text */
+        margin-bottom: 25px;
+    }
+    .form-popup-close-btn {
+        min-width: 100px;
+        padding: 10px 25px; /* Match other small buttons */
+    }
+
+
     .footer-links { gap: 10px 15px; }
     .back-to-top-btn { bottom: 15px; right: 15px; width: 35px; height: 35px; font-size: 1.1rem; }
 }

@@ -7,15 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const navCloseBtn = document.getElementById('navCloseBtn');
     const navLinksContainer = document.getElementById('navLinksContainer');
     const navOverlay = document.getElementById('navOverlay');
-    const navLinks = document.querySelectorAll('#navLinksContainer .nav-link'); // More specific selector
-    const body = document.body;
+    const navLinks = document.querySelectorAll('#navLinksContainer .nav-link');
+    const body = document.body; // Use a more specific name later if needed
 
     const openNav = () => {
         if (navLinksContainer && navOverlay && body) {
             navLinksContainer.classList.add('active');
-            navOverlay.classList.add('active'); // Also make sure overlay becomes active
-            body.classList.add('body-no-scroll');
-            // CSS handles hiding the toggle button now
+            navOverlay.classList.add('active');
+            body.classList.add('body-no-scroll'); // Use this class
         } else {
             console.error("Error: Navigation elements not found for opening.");
         }
@@ -24,9 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeNav = () => {
         if (navLinksContainer && navOverlay && body) {
             navLinksContainer.classList.remove('active');
-            navOverlay.classList.remove('active'); // Deactivate overlay
-            body.classList.remove('body-no-scroll');
-            // CSS handles showing the toggle button
+            navOverlay.classList.remove('active');
+            // Check if popup is *also* active before removing the class
+            if (!formPopupOverlay || !formPopupOverlay.classList.contains('active')) {
+                 body.classList.remove('body-no-scroll');
+            }
         } else {
             console.error("Error: Navigation elements not found for closing.");
         }
@@ -47,30 +48,28 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn("Mobile navigation elements not fully found. Sidebar functionality might be disabled.");
     }
+    // --- End Mobile Navigation Toggle ---
 
     // --- Stat Counter Animation ---
-    // Note: This section is currently removed from the HTML, but JS remains if it's re-added.
     const statNumbers = document.querySelectorAll('.stat-number');
-    const statsSection = document.getElementById('stats'); // Make sure this ID exists if section is added back
-    let statsAnimated = false; // Flag specific to counter animation
+    const statsSection = document.getElementById('stats');
+    let statsAnimated = false;
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-             // Check if the stats section itself is intersecting and hasn't been animated
             if (entry.target === statsSection && entry.isIntersecting && !statsAnimated) {
-                 // console.log("Stats section intersecting, starting counter animation."); // Debug log
                 statNumbers.forEach(numberElement => {
                     const target = +numberElement.getAttribute('data-target');
-                    if (isNaN(target)) { // Added check for valid data-target
+                    if (isNaN(target)) {
                          console.warn("Invalid data-target found for stat counter:", numberElement);
                          return;
                      }
                     numberElement.innerText = '0';
                     let current = 0;
-                    const duration = 1500; // Animation duration in ms
-                    const stepTime = 16; // Approx 60fps
+                    const duration = 1500;
+                    const stepTime = 16;
                     const steps = duration / stepTime;
-                    const increment = Math.max(1, Math.ceil(target / steps)); // Calculate increment based on duration
+                    const increment = Math.max(1, Math.ceil(target / steps));
 
                     const updateCounter = () => {
                         current += increment;
@@ -81,79 +80,63 @@ document.addEventListener('DOMContentLoaded', () => {
                             numberElement.innerText = target.toLocaleString();
                         }
                     };
-                    requestAnimationFrame(updateCounter); // Start animation
+                    requestAnimationFrame(updateCounter);
                 });
-                statsAnimated = true; // Mark counter animation as done
-                observer.unobserve(statsSection); // Stop observing the section for counter animation
-                // console.log("Unobserved stats section for counter animation."); // Debug log
+                statsAnimated = true;
+                observer.unobserve(statsSection);
             }
         });
     }, {
-        threshold: 0.2 // Trigger when 20% visible - Adjusted threshold slightly
+        threshold: 0.2
     });
 
-    // Only observe if the stats section exists
     if (statsSection && statNumbers.length > 0) {
-        // console.log("Observing stats section for counter animation."); // Debug log
         counterObserver.observe(statsSection);
     } else if (!statsSection && statNumbers.length > 0) {
         console.warn("Stat numbers found, but 'stats' section ID is missing. Counter animation disabled.");
     }
     // --- End Stat Counter ---
 
-
     // --- Fade-in Animation on Scroll ---
     const fadeElements = document.querySelectorAll('.js-fade-in');
 
-    // Function to manually trigger fade-in for elements initially in view
     const triggerInitialFadeIn = () => {
         const viewportHeight = window.innerHeight;
         fadeElements.forEach(el => {
             const rect = el.getBoundingClientRect();
-            // Check if element is at least partially visible on load (top edge above bottom of viewport)
-            // and hasn't already been animated (important for subsequent scrolls)
-            // Add a small buffer (e.g., 50px) to trigger slightly earlier
             if (rect.top < viewportHeight - 50 && !el.classList.contains('fade-in-active')) {
-                 // console.log("Initially visible, triggering fade-in:", el); // Debug log
                 el.classList.add('fade-in-active');
-                // We don't unobserve here; let the main observer handle it if it hasn't fired yet.
             }
         });
     };
 
-
     const fadeInObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // console.log("Fade-in intersecting:", entry.target); // Debug log
                 entry.target.classList.add('fade-in-active');
-                observer.unobserve(entry.target); // Stop observing once faded in
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1, // Trigger when 10% is visible
-        // rootMargin: "0px 0px -50px 0px" // Optional: Trigger slightly before fully in view
+        threshold: 0.1,
     });
 
     if (fadeElements.length > 0) {
-         // console.log(`Observing ${fadeElements.length} elements for fade-in animation.`); // Debug log
-        // Observe all elements for scroll-triggered fade-in
         fadeElements.forEach(el => {
             fadeInObserver.observe(el);
         });
-        // Manually trigger fade-in for elements visible on initial load *after* setting up the observer
-        triggerInitialFadeIn();
+        triggerInitialFadeIn(); // Trigger check immediately for elements already in view
     } else {
         console.warn("No elements found for fade-in animation with class 'js-fade-in'.");
     }
-
+    // --- End Fade-in Animation ---
 
     // --- Back to Top Button ---
     const backToTopBtn = document.getElementById('backToTopBtn');
     const scrollThreshold = 300;
 
     const toggleBackToTopButton = () => {
-        if (!backToTopBtn) return; // Added check
+        if (!backToTopBtn) return;
         if (window.scrollY > scrollThreshold) {
             backToTopBtn.classList.add('show');
         } else {
@@ -171,101 +154,190 @@ document.addEventListener('DOMContentLoaded', () => {
     if (backToTopBtn) {
         window.addEventListener('scroll', toggleBackToTopButton);
         backToTopBtn.addEventListener('click', scrollToTop);
-        // Initial check in case page loads already scrolled down
-        toggleBackToTopButton();
+        toggleBackToTopButton(); // Initial check
     } else {
          console.warn("Back to Top button not found.");
     }
+    // --- End Back to Top Button ---
+
+    // --- Popup Handling ---
+    const formPopupOverlay = document.getElementById('formPopupOverlay');
+    const formPopup = document.getElementById('formPopup');
+    const formPopupMessage = document.getElementById('formPopupMessage');
+    const formPopupCloseBtn = document.getElementById('formPopupCloseBtn');
+    // body variable already declared for nav
+
+    const showPopup = (message, isSuccess = true) => {
+        if (!formPopupOverlay || !formPopupMessage || !formPopup || !body) {
+            console.error("Popup elements not found!");
+            alert(message); // Fallback
+            return;
+        }
+        formPopupMessage.textContent = message;
+
+        if (isSuccess) {
+            formPopup.classList.add('form-popup--success');
+            formPopup.classList.remove('form-popup--error');
+        } else {
+            formPopup.classList.add('form-popup--error');
+            formPopup.classList.remove('form-popup--success');
+        }
+
+        formPopupOverlay.classList.add('active');
+        body.classList.add('body-no-scroll'); // Use the same class as nav
+    };
+
+    const hidePopup = () => {
+        if (!formPopupOverlay || !body) return;
+        formPopupOverlay.classList.remove('active');
+        // Only remove scroll lock if nav menu is *also* not active
+        if (!navLinksContainer || !navLinksContainer.classList.contains('active')) {
+            body.classList.remove('body-no-scroll');
+        }
+    };
+
+    // Add event listeners for closing the popup
+    if (formPopupCloseBtn) {
+        formPopupCloseBtn.addEventListener('click', hidePopup);
+    }
+    if (formPopupOverlay) {
+        formPopupOverlay.addEventListener('click', (e) => {
+            if (e.target === formPopupOverlay) {
+                hidePopup();
+            }
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && formPopupOverlay && formPopupOverlay.classList.contains('active')) {
+            hidePopup();
+        }
+        // Also handle escape key for nav menu (already added earlier)
+    });
+    // --- End Popup Handling ---
 
     // --- Contact Form Tag Selection ---
     const tagButtons = document.querySelectorAll('.tag-btn');
-    const selectedServicesInput = document.getElementById('selected_services'); // Input name updated in HTML
+    const selectedServicesInput = document.getElementById('selected_services');
     let selectedServices = [];
 
-    if (tagButtons.length > 0 && selectedServicesInput) { // Also check for input existence
+    if (tagButtons.length > 0 && selectedServicesInput) {
+        // Initialize aria-pressed state
+        tagButtons.forEach(button => {
+            const isActive = button.classList.contains('active');
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            if (isActive) {
+                 const service = button.textContent.trim();
+                 if (!selectedServices.includes(service)) { selectedServices.push(service); }
+            }
+        });
+        selectedServicesInput.value = selectedServices.join(', ');
+
+        // Add click listener
         tagButtons.forEach(button => {
             button.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent potential form submission if wrapped
+                e.preventDefault();
                 button.classList.toggle('active');
-                const service = button.textContent.trim(); // Use textContent as the value
-                if (button.classList.contains('active')) {
-                    if (!selectedServices.includes(service)) {
-                        selectedServices.push(service);
-                    }
+                const service = button.textContent.trim();
+                const isPressed = button.classList.contains('active');
+                button.setAttribute('aria-pressed', isPressed ? 'true' : 'false');
+
+                if (isPressed) {
+                    if (!selectedServices.includes(service)) { selectedServices.push(service); }
                 } else {
                     selectedServices = selectedServices.filter(s => s !== service);
                 }
-                 selectedServicesInput.value = selectedServices.join(', '); // Update hidden input value
-                 // console.log("Selected services:", selectedServicesInput.value); // Debug log
+                selectedServicesInput.value = selectedServices.join(', ');
             });
         });
     } else {
-         if (!selectedServicesInput) {
-              console.warn("Hidden input for selected services/interests (ID: 'selected_services') not found.");
-         }
-         if (tagButtons.length === 0){
-             console.warn("Tag selection buttons not found.");
-         }
+         if (!selectedServicesInput) { console.warn("Hidden input for selected services/interests (ID: 'selected_services') not found."); }
+         if (tagButtons.length === 0){ console.warn("Tag selection buttons (.tag-btn) not found."); }
     }
+    // --- End Contact Form Tag Selection ---
 
-    // --- Contact Form Submission Placeholder ---
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+    // --- Contact Form Submission to Google Apps Script ---
+    const contactForm = document.getElementById('contact-form-real');
+    const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+    const responseNote = contactForm ? contactForm.querySelector('.response-note') : null;
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiAeS-scT3mzQtnSOLa6icZumojg2XGcqqw6OQBXh-YEPI0bYT15ppzmMuBRxNLdKG/exec'; // Ensure this is correct
+
+    if (contactForm && submitButton && SCRIPT_URL) {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // --- Validation ---
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
-            const companyInput = document.getElementById('company');
-            const messageInput = document.getElementById('message'); // Get message field
+            // selectedServicesInput is defined above
 
-            // Basic Validation
-            if (!nameInput || !emailInput) {
-                console.error("Required form fields (name, email) not found.");
-                alert("An error occurred. Please try again later.");
+            if (!nameInput || !emailInput || !selectedServicesInput) {
+                console.error("Required form fields not found during submit.");
+                showPopup("An error occurred setting up the form. Please refresh.", false);
                 return;
             }
-
-             // Use the up-to-date 'selectedServices' array from the tag selection logic
-             const currentSelectedServices = selectedServicesInput?.value ? selectedServicesInput.value.split(', ') : [];
-
-            const formData = {
-                name: nameInput.value.trim() || '',
-                email: emailInput.value.trim() || '',
-                company: companyInput?.value.trim() || '', // Optional field
-                message: messageInput?.value.trim() || '', // Optional field
-                interests: currentSelectedServices // Use updated hidden input value
-            };
-
-            // Perform Validation
+            const currentSelectedServicesValue = selectedServicesInput.value || '';
+            const currentSelectedServicesArray = currentSelectedServicesValue.split(',').map(s => s.trim()).filter(s => s !== '');
             let errors = [];
-            if (!formData.name) errors.push("Name is required.");
-            if (!formData.email) errors.push("Email is required.");
-            if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-                 errors.push("Please enter a valid email address.");
-             }
-             if (formData.interests.length === 0 || (formData.interests.length === 1 && formData.interests[0] === '')) { // Check if empty or just contains empty string from split
-                 errors.push("Please select at least one area of interest.");
+            if (!nameInput.value.trim()) errors.push("Name is required.");
+            if (!emailInput.value.trim()) errors.push("Email is required.");
+            if (emailInput.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+                errors.push("Please enter a valid email address.");
             }
-
+            if (currentSelectedServicesArray.length === 0) {
+                errors.push("Please select at least one area of interest.");
+            }
             if (errors.length > 0) {
-                alert("Please correct the following errors:\n- " + errors.join("\n- "));
+                // Use the popup for validation errors - join with newlines for readability
+                showPopup("Please correct the following:\n\n- " + errors.join("\n- "), false);
                 return;
             }
+            // --- End Validation ---
 
-            // If validation passes (Placeholder Action)
-            console.log('Form submitted (placeholder). Data to send:', formData);
-            alert('Thank you for your message! (This is a demo - no data sent)');
+            // --- Start Submission Logic ---
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending... <span class="submit-arrow"></span>';
+            if (responseNote) responseNote.textContent = "Submitting your message...";
 
-            // Reset form
-            contactForm.reset();
-            // Reset tag buttons and hidden input
-            tagButtons.forEach(btn => btn.classList.remove('active'));
-            selectedServices = []; // Clear the JS array
-            if (selectedServicesInput) selectedServicesInput.value = ''; // Clear the hidden input
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                });
+
+                console.log('Form submitted successfully (assumed due to no-cors mode).');
+                showPopup('Thank you for your message! I will get back to you soon.', true);
+
+                // Reset form and related state AFTER showing success popup
+                contactForm.reset();
+                tagButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                if (selectedServicesInput) selectedServicesInput.value = '';
+                selectedServices = [];
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showPopup('Sorry, there was an error sending your message. Please try again later or contact me directly via email.', false);
+
+            } finally {
+                // Re-enable button and restore original text, reset response note
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+                if (responseNote) responseNote.textContent = "I will get back to you within 24 hours.";
+                // Do NOT hide the popup here, let the user do it.
+            }
+            // --- End Submission Logic ---
         });
     } else {
-        console.warn("Contact form not found.");
+        if (!contactForm) console.warn("Contact form with ID 'contact-form-real' not found.");
+        if (contactForm && !submitButton) console.warn("Submit button within the contact form not found.");
+        if (!SCRIPT_URL) console.error("Google Apps Script URL is missing or empty.");
     }
+    // --- End Contact Form Submission ---
 
 }); // End DOMContentLoaded
-// --- END OF FILE script.js ---
