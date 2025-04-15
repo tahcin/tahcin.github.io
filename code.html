@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhu - Product Designer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add Google Fonts (Example: Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Add Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <nav class="main-nav">
+            <div class="logo">resume<span class="gradient-text">.</span></div>
+
+            <!-- Navigation Links Container (Sidebar on Mobile) -->
+            <div class="nav-links-container" id="navLinksContainer">
+                 <button class="nav-close-btn" id="navCloseBtn" aria-label="Close navigation menu">
+                    <i class="ri-close-line"></i>
+                </button>
+                <a href="#portfolio" class="nav-link">My Projects <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                <a href="#about-placeholder" class="nav-link">About Me <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                <a href="#contact" class="nav-link">Contact me <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+            </div>
+
+            <!-- Mobile Navigation Toggle Button -->
+            <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Open navigation menu">
+                <i class="ri-menu-line"></i>
+            </button>
+        </nav>
+        <div class="hero-content">
+            <!-- Add js-fade-in to hero text and image -->
+            <div class="hero-gradient-2"></div>
+            <div class="hero-text js-fade-in">
+                <span class="waving-hand">👋</span>
+                <h1>Hello! I'm <br/><span class="gradient-text">Tahcin Sarwar</span>
+                <h2>Aspiring Product Manager</h2>
+                <p>Hello! I'm Madhu. I'm a UX leader, design thinker, product designer, experience strategist, generative artist & human-loving introvert. Let's build something amazing together.</p>
+                <ul class="hero-checklist">
+                    <li><span class="check"><i class="ri-check-line"></i></span> Product must be authentic</li>
+                    <li><span class="check"><i class="ri-check-line"></i></span> Solve pain points elegantly</li>
+                    <li><span class="check"><i class="ri-check-line"></i></span> User testing, feedback, and validation</li>
+                </ul>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                    <a href="#download-cv-placeholder" class="btn btn-secondary">Download Cv <span class="download-icon"><i class="ri-download-2-line"></i></span></a>
+                </div>
+                 <div class="hello-graphic">Hello</div>
+            </div>
+            <div class="hero-image-container js-fade-in">
+                 <div class="hero-gradient"></div>
+                <img src="photo.png" alt="Smiling portrait of Madhu" class="hero-photo">
+                <div class="hero-squiggle"></div>
+            </div>
+        </div>
+        <!-- js-fade-in already applied to containers that appear on scroll -->
+        <div class="hero-tags-container js-fade-in">
+             <div class="hero-tags-scroll">
+                <span><i class="ri-apps-line"></i> WEB DESIGN</span>
+                <span><i class="ri-smartphone-line"></i> APP DESIGN</span>
+                <span><i class="ri-code-s-slash-line"></i> DEVELOPMENT</span>
+                <span><i class="ri-window-line"></i> WEB FLOW</span>
+                <span><i class="ri-quill-pen-line"></i> BRANDING</span>
+                <span><i class="ri-pencil-ruler-2-line"></i> UI/UX</span>
+                <span><i class="ri-apps-line"></i> WEB DESIGN</span>
+                <span><i class="ri-smartphone-line"></i> APP DESIGN</span>
+            </div>
+        </div>
+        <div class="social-links js-fade-in">
+             <a href="#"><i class="ri-facebook-fill"></i> FACEBOOK</a>
+             <a href="#"><i class="ri-youtube-fill"></i> YOUTUBE</a>
+             <a href="#"><i class="ri-twitter-fill"></i> TWITTER</a>
+             <a href="mailto:info.madhu786@gmail.com" class="email-link"><i class="ri-mail-line"></i> MOHAMMADB24@IIMB.AC.IN</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- WHAT I'M OFFERING SECTION -->
+        <section id="services" class="services-section js-fade-in">
+            <div class="section-header">
+                <div>
+                    <p class="subtitle">MY SERVICES?</p>
+                    <h2>WHAT I'M OFFERING</h2>
+                    <p class="section-description">Services to elevate your product with functional, beautiful design.</p>
+                 </div>
+                 <a href="#all-services-placeholder" class="btn btn-dark">ALL SERVICE</a>
+            </div>
+             <div class="scroll-down-indicator">
+                <span>SCROLL DOWN</span>
+                <div class="scroll-arrow"><i class="ri-arrow-down-line"></i></div>
+            </div>
+            <div class="services-grid">
+                <!-- Add js-fade-in to children if you want staggered CSS delay -->
+                <div class="service-card highlight-card js-fade-in">
+                    <div class="service-icon"><i class="ri-pencil-ruler-2-line"></i></div>
+                    <h3>UI-UX CREATIVE DESIGN</h3>
+                    <a href="#service-detail-1" class="read-more">READ MORE <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="service-card js-fade-in">
+                    <div class="service-icon"><i class="ri-computer-line"></i></div>
+                    <h3>VISUAL GRAPHIC DESIGN</h3>
+                    <a href="#service-detail-2" class="read-more">READ MORE <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="service-card js-fade-in">
+                     <div class="service-icon"><i class="ri-lightbulb-flash-line"></i></div>
+                    <h3>STRATEGY & DIGITAL MARKETING</h3>
+                    <a href="#service-detail-3" class="read-more">READ MORE <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="experience-section js-fade-in">
+             <div class="section-header text-center">
+                <div class="section-graphic"></div>
+                <h2>EXPERIENCE</h2>
+                <p class="section-description">Here’s what I’ve been up to recently.</p>
+                 <div class="section-graphic-lines"></div>
+             </div>
+            <div class="experience-list">
+                <div class="experience-item highlight-experience js-fade-in">
+                    <span class="exp-number">1</span>
+                    <div class="exp-details">
+                        <h4>Micro-interactions Awwwards Team</h4>
+                        <p>Focus Lab Agency - United State</p>
+                    </div>
+                    <div class="exp-duration">JOB DURATION - 2 YEARS</div>
+                </div>
+                <div class="experience-item js-fade-in">
+                    <span class="exp-number">2</span>
+                    <div class="exp-details">
+                        <h4>Senior UI Designer</h4>
+                        <p>User-Hub - Bangladesh</p>
+                    </div>
+                     <div class="exp-duration">JOB DURATION - 1 YEAR</div>
+                </div>
+                 <div class="experience-item js-fade-in">
+                    <span class="exp-number">3</span>
+                    <div class="exp-details">
+                        <h4>Product Design</h4>
+                        <p>Zomato Digial Agency- India</p>
+                    </div>
+                     <div class="exp-duration">JOB DURATION - 2 YEARS</div>
+                </div>
+                 <div class="experience-item js-fade-in">
+                    <span class="exp-number">4</span>
+                    <div class="exp-details">
+                        <h4>Webflow Team Manager</h4>
+                        <p>Google Team - UK</p>
+                    </div>
+                     <div class="exp-duration">JOB DURATION - 2 YEARS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDY / PORTFOLIO SECTION -->
+        <section id="portfolio" class="portfolio-section js-fade-in">
+            <div class="section-header text-center">
+                <div class="section-dots-graphic"></div>
+                 <h2>CASE STUDY</h2>
+                 <p class="section-description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+            </div>
+            <div class="portfolio-grid">
+                <article class="project-preview js-fade-in">
+                    <div class="project-image-container">
+                        <img src="proj1.jpg" alt="Project 1 Preview">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">WEB DESIGN</span>
+                        <h3>Web Design for fintech payment solutions.</h3>
+                        <a href="#project-detail-1" class="details-link">See Details <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                    </div>
+                </article>
+                <article class="project-preview js-fade-in">
+                    <div class="project-image-container">
+                        <img src="proj2.jpg" alt="Project 2 Preview">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">WEB DESIGN</span>
+                        <h3>Minimal Agency website for startups business.</h3>
+                         <a href="#project-detail-2" class="details-link">See Details <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                    </div>
+                </article>
+                 <article class="project-preview js-fade-in">
+                     <div class="project-image-container">
+                         <img src="proj3.jpg" alt="Project 3 Preview">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">APP DESIGN</span>
+                        <h3>Saas web and app design project.</h3>
+                        <a href="#project-detail-3" class="details-link">See Details <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CLIENT FEEDBACK SECTION -->
+        <section id="testimonials" class="testimonials-section js-fade-in">
+            <div class="feedback-content">
+                 <div class="section-header feedback-header">
+                     <p class="subtitle">CLIENT FEEDBACK</p>
+                      <div class="feedback-graphic">
+                            ✖
+                      </div>
+                </div>
+                 <blockquote>
+                    “I just wanted to share a quick note and let you know that you guys do a really good job.”
+                 </blockquote>
+                 <div class="client-info">
+                    <p class="client-name">Rohan Sing</p>
+                    <p class="client-role">Project Manager, Airflow Tech Inc</p>
+                    <div class="client-squiggle"></div>
+                 </div>
+            </div>
+            
+        </section>
+
+        <!-- STATS SECTION -->
+        <!-- Note: js-fade-in REMOVED from section tag -->
+        <section id="stats" class="stats-section">
+            <!-- Note: js-fade-in ADDED to each child -->
+            <div class="stat-item js-fade-in">
+                 <div class="stat-icon"><i class="ri-checkbox-multiple-line"></i></div>
+                <span class="stat-number" data-target="2450">0</span>
+                <p class="stat-label">Project Completed Done</p>
+            </div>
+             <div class="stat-item js-fade-in">
+                 <div class="stat-icon"><i class="ri-user-smile-line"></i></div>
+                 <span class="stat-number" data-target="1085">0</span>
+                <p class="stat-label">Satisfied Clients</p>
+            </div>
+             <div class="stat-item js-fade-in">
+                 <div class="stat-icon"><i class="ri-group-line"></i></div>
+                <span class="stat-number" data-target="7">0</span>
+                <p class="stat-label">My Team Members</p>
+            </div>
+             <div class="stat-item js-fade-in">
+                 <div class="stat-icon"><i class="ri-global-line"></i></div>
+                 <span class="stat-number" data-target="2790">0</span>
+                 <p class="stat-label">World Wide Customer</p>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section js-fade-in">
+            <h2><span class="highlight-text">Say Hi!</span> <span class="gradient-text">tell me about your idea</span></h2>
+            <p class="contact-subtitle">Have a nice works? reach out and let's chat.</p>
+             <div class="contact-arrow"></div>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group form-group-split">
+                    <div>
+                        <label for="name">Name:*</label>
+                        <input type="text" id="name" name="name" placeholder="Hello..." required>
+                    </div>
+                     <div>
+                        <label for="email">Email:*</label>
+                        <input type="email" id="email" name="email" placeholder="Where can I reply" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company name</label>
+                    <input type="text" id="company" name="company" placeholder="Your company or website?">
+                </div>
+                 <div class="form-group">
+                     <label>What's in your mind?*</label>
+                     <div class="tag-selection">
+                        <button type="button" class="tag-btn">Mobile App</button>
+                        <button type="button" class="tag-btn">Website Design</button>
+                        <button type="button" class="tag-btn">Branding</button>
+                        <button type="button" class="tag-btn">Webflow development</button>
+                        <button type="button" class="tag-btn">App design</button>
+                         <button type="button" class="tag-btn">Graphic design</button>
+                         <button type="button" class="tag-btn">Wordpress</button>
+                     </div>
+                     <input type="hidden" name="selected_services" id="selected_services">
+                 </div>
+                 <div class="submit-area">
+                     <button type="submit" class="btn btn-submit">
+                         Send Me
+                         <span class="submit-arrow"></span>
+                    </button>
+                    <p class="response-note">I'll must get back to you within 24 hours</p>
+                 </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer js-fade-in">
+        <div class="footer-links">
+            <a href="#linkedin-placeholder">Linkedln</a>
+            <a href="#instagram-placeholder">Instagram</a>
+        </div>
+        <p class="copyright">Tahcin Sarwar ©2025</p>
+    </footer>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top-btn" aria-label="Scroll to top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
