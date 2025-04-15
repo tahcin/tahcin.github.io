@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +25,13 @@
                  <button class="nav-close-btn" id="navCloseBtn" aria-label="Close navigation menu">
                     <i class="ri-close-line"></i>
                 </button>
-                <a href="#portfolio" class="nav-link">My Projects <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
-                <a href="#about-placeholder" class="nav-link">About Me <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
-                <a href="#contact" class="nav-link">Contact me <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                <!-- NOTE: Removed #skills link as there's no skills section -->
+                <a href="#services" class="nav-link">Skills <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                <a href="#experience" class="nav-link">Experience <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                <!-- ADDED Education Link -->
+                <a href="#education" class="nav-link">Education <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                <a href="#portfolio" class="nav-link">Projects <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                <a href="#contact" class="nav-link">Contact <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
             </div>
 
             <!-- Mobile Navigation Toggle Button -->
@@ -39,9 +44,11 @@
             <div class="hero-gradient-2"></div>
             <div class="hero-text js-fade-in">
                 <span class="waving-hand">👋</span>
-                <h1>Hello! I'm <br/><span class="gradient-text">Tahcin Sarwar</span>
+                <h1>Hello! I'm <br/><span class="gradient-text">Tahcin Sarwar</span></h1>
+                <!-- Updated Title to match name -->
                 <h2>Aspiring Product Manager</h2>
-                <p>Hello! I'm Madhu. I'm a UX leader, design thinker, product designer, experience strategist, generative artist & human-loving introvert. Let's build something amazing together.</p>
+                <!-- Updated Intro text slightly -->
+                <p>Passionate about creating authentic products that solve pain points elegantly through user-centric design, testing, and validation. Let's build something amazing together.</p>
                 <ul class="hero-checklist">
                     <li><span class="check"><i class="ri-check-line"></i></span> Product must be authentic</li>
                     <li><span class="check"><i class="ri-check-line"></i></span> Solve pain points elegantly</li>
@@ -49,47 +56,62 @@
                 </ul>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Let's Talk</a>
-                    <a href="#download-cv-placeholder" class="btn btn-secondary">Download Cv <span class="download-icon"><i class="ri-download-2-line"></i></span></a>
+                    <!-- Added placeholder for actual CV link -->
+                    <a href="placeholder-cv.pdf" download="Tahcin_Sarwar_Resume.pdf" class="btn btn-secondary">Download CV <span class="download-icon"><i class="ri-download-2-line"></i></span></a>
                 </div>
                  <div class="hello-graphic">Hello</div>
             </div>
             <div class="hero-image-container js-fade-in">
                  <div class="hero-gradient"></div>
-                <img src="photo.png" alt="Smiling portrait of Madhu" class="hero-photo">
+                 <!-- Updated alt text -->
+                <img src="photo.png" alt="Portrait of Tahcin Sarwar" class="hero-photo">
                 <div class="hero-squiggle"></div>
             </div>
         </div>
         <!-- js-fade-in already applied to containers that appear on scroll -->
         <div class="hero-tags-container js-fade-in">
-             <div class="hero-tags-scroll">
-                <span><i class="ri-apps-line"></i> WEB DESIGN</span>
-                <span><i class="ri-smartphone-line"></i> APP DESIGN</span>
-                <span><i class="ri-code-s-slash-line"></i> DEVELOPMENT</span>
-                <span><i class="ri-window-line"></i> WEB FLOW</span>
-                <span><i class="ri-quill-pen-line"></i> BRANDING</span>
-                <span><i class="ri-pencil-ruler-2-line"></i> UI/UX</span>
-                <span><i class="ri-apps-line"></i> WEB DESIGN</span>
-                <span><i class="ri-smartphone-line"></i> APP DESIGN</span>
+            <div class="hero-tags-scroll-wrapper">
+              <div class="hero-tags-scroll">
+                <span><i class="ri-line-chart-line"></i> STRATEGY</span>
+                <span><i class="ri-team-line"></i> LEADERSHIP</span>
+                <span><i class="ri-lightbulb-flash-line"></i> INNOVATION</span>
+                <span><i class="ri-user-voice-line"></i> USER RESEARCH</span>
+                <span><i class="ri-pencil-ruler-2-line"></i> DESIGN THINKING</span>
+                <span><i class="ri-briefcase-4-line"></i> PRODUCT MGMT</span>
+            </div>
+            <!-- Duplicate for seamless scrolling -->
+            <div class="hero-tags-scroll">
+                <span><i class="ri-line-chart-line"></i> STRATEGY</span>
+                <span><i class="ri-team-line"></i> LEADERSHIP</span>
+                <span><i class="ri-lightbulb-flash-line"></i> INNOVATION</span>
+                <span><i class="ri-user-voice-line"></i> USER RESEARCH</span>
+                <span><i class="ri-pencil-ruler-2-line"></i> DESIGN THINKING</span>
+                <span><i class="ri-briefcase-4-line"></i> PRODUCT MGMT</span>
             </div>
         </div>
         <div class="social-links js-fade-in">
-             <a href="#"><i class="ri-facebook-fill"></i> FACEBOOK</a>
-             <a href="#"><i class="ri-youtube-fill"></i> YOUTUBE</a>
-             <a href="#"><i class="ri-twitter-fill"></i> TWITTER</a>
-             <a href="mailto:info.madhu786@gmail.com" class="email-link"><i class="ri-mail-line"></i> MOHAMMADB24@IIMB.AC.IN</a>
+             <a href="https://linkedin.com/in/tahcinsarwar/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-box-fill"></i> LINKEDIN</a>
+             <!-- Removed irrelevant social links, keep relevant ones -->
+             <!-- <a href="#"><i class="ri-youtube-fill"></i> YOUTUBE</a> -->
+             <!-- <a href="#"><i class="ri-twitter-fill"></i> TWITTER</a> -->
+             <!-- <a href="#"><i class="ri-facebook-fill"></i> FACEBOOK</a> -->
+             <!-- Updated Email -->
+             <a href="mailto:mohammadb24@iimb.ac.in" class="email-link"><i class="ri-mail-line"></i> mohammadb24@iimb.ac.in</a>
         </div>
     </header>
 
     <main>
-        <!-- WHAT I'M OFFERING SECTION -->
+        <!-- WHAT I'M OFFERING SECTION (Reframed slightly for PM) -->
         <section id="services" class="services-section js-fade-in">
             <div class="section-header">
                 <div>
-                    <p class="subtitle">MY SERVICES?</p>
-                    <h2>WHAT I'M OFFERING</h2>
-                    <p class="section-description">Services to elevate your product with functional, beautiful design.</p>
+                    <!-- Updated Subtitle and Title -->
+                    <p class="subtitle">MY FOCUS AREAS</p>
+                    <h2>WHAT I BRING TO THE TABLE</h2>
+                    <p class="section-description">Key skills and approaches I leverage to build successful products.</p>
                  </div>
-                 <a href="#all-services-placeholder" class="btn btn-dark">ALL SERVICE</a>
+                 <!-- Updated button text, points to portfolio -->
+                 <a href="#portfolio" class="btn btn-dark">VIEW PROJECTS</a>
             </div>
              <div class="scroll-down-indicator">
                 <span>SCROLL DOWN</span>
@@ -97,20 +119,24 @@
             </div>
             <div class="services-grid">
                 <!-- Add js-fade-in to children if you want staggered CSS delay -->
+                <!-- Updated Service Cards for PM focus -->
                 <div class="service-card highlight-card js-fade-in">
-                    <div class="service-icon"><i class="ri-pencil-ruler-2-line"></i></div>
-                    <h3>UI-UX CREATIVE DESIGN</h3>
-                    <a href="#service-detail-1" class="read-more">READ MORE <i class="ri-arrow-right-line"></i></a>
+                    <div class="service-icon"><i class="ri-lightbulb-flash-line"></i></div>
+                    <h3>PRODUCT STRATEGY & VISION</h3>
+                    <p>Defining clear goals, identifying opportunities, and creating roadmaps aligned with business objectives and user needs.</p>
+                    <a href="#contact" class="read-more">DISCUSS STRATEGY <i class="ri-arrow-right-line"></i></a>
                 </div>
                 <div class="service-card js-fade-in">
-                    <div class="service-icon"><i class="ri-computer-line"></i></div>
-                    <h3>VISUAL GRAPHIC DESIGN</h3>
-                    <a href="#service-detail-2" class="read-more">READ MORE <i class="ri-arrow-right-line"></i></a>
+                    <div class="service-icon"><i class="ri-team-line"></i></div>
+                    <h3>USER-CENTRIC LEADERSHIP</h3>
+                     <p>Championing the user voice through research, data analysis, and fostering collaboration across design & engineering.</p>
+                    <a href="#contact" class="read-more">LEARN MORE <i class="ri-arrow-right-line"></i></a>
                 </div>
                 <div class="service-card js-fade-in">
-                     <div class="service-icon"><i class="ri-lightbulb-flash-line"></i></div>
-                    <h3>STRATEGY & DIGITAL MARKETING</h3>
-                    <a href="#service-detail-3" class="read-more">READ MORE <i class="ri-arrow-right-line"></i></a>
+                     <div class="service-icon"><i class="ri-line-chart-line"></i></div>
+                    <h3>DATA-DRIVEN EXECUTION</h3>
+                    <p>Prioritizing features, managing backlogs, and measuring success through metrics to ensure continuous improvement.</p>
+                    <a href="#contact" class="read-more">LET'S CONNECT <i class="ri-arrow-right-line"></i></a>
                 </div>
             </div>
         </section>
@@ -119,85 +145,153 @@
         <section id="experience" class="experience-section js-fade-in">
              <div class="section-header text-center">
                 <div class="section-graphic"></div>
-                <h2>EXPERIENCE</h2>
-                <p class="section-description">Here’s what I’ve been up to recently.</p>
+                <h2>EXPERIENCE JOURNEY</h2>
+                <p class="section-description">A timeline of my professional roles and key contributions.</p>
                  <div class="section-graphic-lines"></div>
              </div>
-            <div class="experience-list">
-                <div class="experience-item highlight-experience js-fade-in">
-                    <span class="exp-number">1</span>
-                    <div class="exp-details">
-                        <h4>Micro-interactions Awwwards Team</h4>
-                        <p>Focus Lab Agency - United State</p>
+             <!-- Experience Roadmap Container -->
+             <div class="experience-list roadmap-list">
+                <div class="experience-item roadmap-item highlight-experience js-fade-in">
+                    <div class="exp-content">
+                        <span class="exp-duration">APR 2025 - PRESENT</span>
+                        <div class="exp-details">
+                            <h4>Core Partnership Team</h4>
+                            <p>BBA DBE, IIM Bangalore</p>
+                            <p class="exp-desc">Selected as a core member of the Partnerships Team to lead strategic collaborations and amplify program visibility.</p>
+                        </div>
                     </div>
-                    <div class="exp-duration">JOB DURATION - 2 YEARS</div>
                 </div>
-                <div class="experience-item js-fade-in">
-                    <span class="exp-number">2</span>
-                    <div class="exp-details">
-                        <h4>Senior UI Designer</h4>
-                        <p>User-Hub - Bangladesh</p>
+            
+                <div class="experience-item roadmap-item js-fade-in">
+                    <div class="exp-content">
+                        <span class="exp-duration">JAN 2025 - PRESENT</span>
+                        <div class="exp-details">
+                            <h4>Lead Coordinator - Media Cell</h4>
+                            <p>BBA DBE, IIM Bangalore</p>
+                            <p class="exp-desc">Led selection of core team, curated LinkedIn content, and captured visual content for Unmaad 2025, driving program visibility.</p>
+                        </div>
                     </div>
-                     <div class="exp-duration">JOB DURATION - 1 YEAR</div>
                 </div>
-                 <div class="experience-item js-fade-in">
-                    <span class="exp-number">3</span>
-                    <div class="exp-details">
-                        <h4>Product Design</h4>
-                        <p>Zomato Digial Agency- India</p>
+            
+                <div class="experience-item roadmap-item highlight-experience js-fade-in">
+                    <div class="exp-content">
+                        <span class="exp-duration">DEC 2024 - PRESENT</span>
+                        <div class="exp-details">
+                            <h4>Zonal Representative (East Zone)</h4>
+                            <p>BBA DBE, IIM Bangalore</p>
+                            <p class="exp-desc">Moderated communication, managed the East Zone Instagram (Rose Panthers), and contributed to NOVA 24 participation.</p>
+                        </div>
                     </div>
-                     <div class="exp-duration">JOB DURATION - 2 YEARS</div>
                 </div>
-                 <div class="experience-item js-fade-in">
-                    <span class="exp-number">4</span>
-                    <div class="exp-details">
-                        <h4>Webflow Team Manager</h4>
-                        <p>Google Team - UK</p>
+            
+                <div class="experience-item roadmap-item js-fade-in">
+                    <div class="exp-content">
+                        <span class="exp-duration">AUG 2023 - PRESENT</span>
+                        <div class="exp-details">
+                            <h4>Co-Director</h4>
+                            <p>Serenite Retreats</p>
+                            <p class="exp-desc">Co-founded a registered stay venture in Guwahati, launched a responsive booking site, and led branding and marketing strategies for customer acquisition.</p>
+                        </div>
                     </div>
-                     <div class="exp-duration">JOB DURATION - 2 YEARS</div>
+                </div>
+            
+                <div class="experience-item roadmap-item highlight-experience js-fade-in">
+                    <div class="exp-content">
+                        <span class="exp-duration">DEC 2021 - OCT 2024</span>
+                        <div class="exp-details">
+                            <h4>Creatives Chief</h4>
+                            <p>Witnux (MSME)</p>
+                            <p class="exp-desc">Led branding and UI efforts for clients including UK-based Learn Education; developed scalable, user-friendly websites and market research-driven positioning.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+             <!-- End .roadmap-list -->
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="education-section js-fade-in">
+            <div class="section-header text-center">
+                 <div class="education-graphic"> <!-- New graphic element -->
+                     <i class="ri-graduation-cap-line"></i>
+                </div>
+                <h2>ACADEMIC BACKGROUND</h2>
+                <p class="section-description">My formal education and key academic achievements.</p>
+            </div>
+            <div class="education-grid">
+    <article class="education-item js-fade-in">
+        <div class="education-icon-wrapper">
+            <i class="ri-book-open-line"></i>
+        </div>
+        <div class="education-content">
+            <span class="education-dates">2024 - Present</span>
+            <h3 class="education-degree">BBA in Digital Business and Entrepreneurship</h3>
+            <h4 class="education-institution">Indian Institute of Management, Bangalore</h4>
+            <p class="education-details">Involved in various Position of Responsibilities. Special mention in Frame It Out (UI/UX dev challenge) during NOVA 24.</p>
+        </div>
+    </article>
+
+    <article class="education-item js-fade-in">
+        <div class="education-icon-wrapper">
+            <i class="ri-briefcase-line"></i>
+        </div>
+        <div class="education-content">
+            <span class="education-dates">2021 - 2023</span>
+            <h3 class="education-degree">High School, PCMB</h3>
+            <h4 class="education-institution">Saiyyid Hamid Sr. Secondary School (Boys), AMU</h4>
+            <p class="education-details">Passed with 89% aggregate. Ranked among top 1100 out of 40,000 in entrance exam.</p>
+        </div>
+    </article>
+</div>
+
         </section>
 
         <!-- CASE STUDY / PORTFOLIO SECTION -->
         <section id="portfolio" class="portfolio-section js-fade-in">
             <div class="section-header text-center">
                 <div class="section-dots-graphic"></div>
-                 <h2>CASE STUDY</h2>
-                 <p class="section-description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                 <!-- Updated Title -->
+                 <h2>PROJECT HIGHLIGHTS</h2>
+                 <p class="section-description">Showcasing applications of product thinking and strategic execution.</p>
             </div>
             <div class="portfolio-grid">
                 <article class="project-preview js-fade-in">
                     <div class="project-image-container">
-                        <img src="proj1.jpg" alt="Project 1 Preview">
+                        <img src="proj1.jpg" alt="Deadline Dash project preview">
                     </div>
                     <div class="project-info">
-                        <span class="project-tag">WEB DESIGN</span>
-                        <h3>Web Design for fintech payment solutions.</h3>
-                        <a href="#project-detail-1" class="details-link">See Details <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                        <span class="project-tag">OPEN SOURCE PRODUCT</span>
+                        <h3>Deadline Dash</h3>
+                        <p class="project-desc">A deadline tracking platform tailored for IIMB BBA DBE students. Features include push notifications, a community, and mobile-friendly design.</p>
+                        <a href="https://deadline-dash.vercel.app" class="details-link" target="_blank">View Live <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
                     </div>
                 </article>
+            
                 <article class="project-preview js-fade-in">
                     <div class="project-image-container">
-                        <img src="proj2.jpg" alt="Project 2 Preview">
+                        <img src="proj2.jpg" alt="LMS portal project preview">
                     </div>
                     <div class="project-info">
-                        <span class="project-tag">WEB DESIGN</span>
-                        <h3>Minimal Agency website for startups business.</h3>
-                         <a href="#project-detail-2" class="details-link">See Details <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                        <span class="project-tag">WORK IN PROGRESS</span>
+                        <h3>BBA DBE LMS Portal</h3>
+                        <p class="project-desc">Currently developing a custom LMS for BBA DBE learners with integrated notes, quizzes, and AI chatbot support.</p>
+                        <a href="#" class="details-link">Coming Soon <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
                     </div>
                 </article>
-                 <article class="project-preview js-fade-in">
-                     <div class="project-image-container">
-                         <img src="proj3.jpg" alt="Project 3 Preview">
+            
+                <article class="project-preview js-fade-in">
+                    <div class="project-image-container">
+                        <img src="proj3.jpg" alt="Portfolio Website project preview">
                     </div>
                     <div class="project-info">
-                        <span class="project-tag">APP DESIGN</span>
-                        <h3>Saas web and app design project.</h3>
-                        <a href="#project-detail-3" class="details-link">See Details <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
+                        <span class="project-tag">PERSONAL BRANDING</span>
+                        <h3>This Resume Website</h3>
+                        <p class="project-desc">Designed and built this responsive resume website to showcase skills, projects, and experiences with clean UI and mobile-first design.</p>
+                        <a href="#" class="details-link">You're already here! <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
                     </div>
                 </article>
             </div>
+            
         </section>
 
         <!-- CLIENT FEEDBACK SECTION -->
@@ -247,45 +341,55 @@
             </div>
         </section>
 
+
         <!-- CONTACT SECTION -->
         <section id="contact" class="contact-section js-fade-in">
-            <h2><span class="highlight-text">Say Hi!</span> <span class="gradient-text">tell me about your idea</span></h2>
-            <p class="contact-subtitle">Have a nice works? reach out and let's chat.</p>
+             <!-- Updated Title and Subtitle -->
+            <h2><span class="highlight-text">Let's Connect!</span> <span class="gradient-text">discuss opportunities or ideas</span></h2>
+            <p class="contact-subtitle">Interested in collaborating or have a project in mind? Reach out!</p>
              <div class="contact-arrow"></div>
             <form action="#" method="POST" class="contact-form">
                 <div class="form-group form-group-split">
                     <div>
                         <label for="name">Name:*</label>
-                        <input type="text" id="name" name="name" placeholder="Hello..." required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
                      <div>
                         <label for="email">Email:*</label>
-                        <input type="email" id="email" name="email" placeholder="Where can I reply" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="company">Company name</label>
-                    <input type="text" id="company" name="company" placeholder="Your company or website?">
+                    <label for="company">Company / Project (Optional)</label>
+                    <input type="text" id="company" name="company" placeholder="Associated company or project idea">
                 </div>
                  <div class="form-group">
-                     <label>What's in your mind?*</label>
+                     <!-- Updated Label and Tags -->
+                     <label>Areas of Interest:*</label>
                      <div class="tag-selection">
-                        <button type="button" class="tag-btn">Mobile App</button>
-                        <button type="button" class="tag-btn">Website Design</button>
-                        <button type="button" class="tag-btn">Branding</button>
-                        <button type="button" class="tag-btn">Webflow development</button>
-                        <button type="button" class="tag-btn">App design</button>
-                         <button type="button" class="tag-btn">Graphic design</button>
-                         <button type="button" class="tag-btn">Wordpress</button>
+                        <button type="button" class="tag-btn">Product Strategy</button>
+                        <button type="button" class="tag-btn">User Research</button>
+                        <button type="button" class="tag-btn">Market Analysis</button>
+                        <button type="button" class="tag-btn">Feature Development</button>
+                        <button type="button" class="tag-btn">Collaboration</button>
+                         <button type="button" class="tag-btn">Networking</button>
+                         <button type="button" class="tag-btn">Other Inquiry</button>
                      </div>
                      <input type="hidden" name="selected_services" id="selected_services">
                  </div>
+                <!-- Optional Message field added -->
+                <div class="form-group">
+                    <label for="message">Your Message (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell me more about what you're thinking..."></textarea>
+                </div>
+
                  <div class="submit-area">
                      <button type="submit" class="btn btn-submit">
-                         Send Me
+                         Send Message
                          <span class="submit-arrow"></span>
                     </button>
-                    <p class="response-note">I'll must get back to you within 24 hours</p>
+                     <!-- Updated Response Note -->
+                    <p class="response-note">I aim to respond within 24-48 hours.</p>
                  </div>
             </form>
         </section>
@@ -294,10 +398,11 @@
     <!-- FOOTER -->
     <footer class="site-footer js-fade-in">
         <div class="footer-links">
-            <a href="#linkedin-placeholder">Linkedln</a>
-            <a href="#instagram-placeholder">Instagram</a>
+            <a href="https://linkedin.com/in/tahcin-sarwar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <!-- Keep other relevant links if any -->
+             <!-- <a href="#instagram-placeholder">Instagram</a> -->
         </div>
-        <p class="copyright">Tahcin Sarwar ©2025</p>
+        <p class="copyright">Tahcin Sarwar © <script>document.write(new Date().getFullYear())</script></p>
     </footer>
 
     <!-- Mobile Navigation Overlay -->

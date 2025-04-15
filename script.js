@@ -49,8 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Stat Counter Animation ---
+    // Note: This section is currently removed from the HTML, but JS remains if it's re-added.
     const statNumbers = document.querySelectorAll('.stat-number');
-    const statsSection = document.getElementById('stats');
+    const statsSection = document.getElementById('stats'); // Make sure this ID exists if section is added back
     let statsAnimated = false; // Flag specific to counter animation
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -60,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
                  // console.log("Stats section intersecting, starting counter animation."); // Debug log
                 statNumbers.forEach(numberElement => {
                     const target = +numberElement.getAttribute('data-target');
+                    if (isNaN(target)) { // Added check for valid data-target
+                         console.warn("Invalid data-target found for stat counter:", numberElement);
+                         return;
+                     }
                     numberElement.innerText = '0';
                     let current = 0;
                     const duration = 1500; // Animation duration in ms
@@ -87,12 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.2 // Trigger when 20% visible - Adjusted threshold slightly
     });
 
+    // Only observe if the stats section exists
     if (statsSection && statNumbers.length > 0) {
         // console.log("Observing stats section for counter animation."); // Debug log
         counterObserver.observe(statsSection);
-    } else {
-        console.warn("Stats section or numbers not found for counter animation.");
+    } else if (!statsSection && statNumbers.length > 0) {
+        console.warn("Stat numbers found, but 'stats' section ID is missing. Counter animation disabled.");
     }
+    // --- End Stat Counter ---
+
 
     // --- Fade-in Animation on Scroll ---
     const fadeElements = document.querySelectorAll('.js-fade-in');
@@ -104,11 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = el.getBoundingClientRect();
             // Check if element is at least partially visible on load (top edge above bottom of viewport)
             // and hasn't already been animated (important for subsequent scrolls)
-            if (rect.top < viewportHeight && !el.classList.contains('fade-in-active')) {
+            // Add a small buffer (e.g., 50px) to trigger slightly earlier
+            if (rect.top < viewportHeight - 50 && !el.classList.contains('fade-in-active')) {
                  // console.log("Initially visible, triggering fade-in:", el); // Debug log
                 el.classList.add('fade-in-active');
-                // Optionally unobserve if using IntersectionObserver
-                 // if (fadeInObserver) fadeInObserver.unobserve(el);
+                // We don't unobserve here; let the main observer handle it if it hasn't fired yet.
             }
         });
     };
@@ -133,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeElements.forEach(el => {
             fadeInObserver.observe(el);
         });
-        // Manually trigger fade-in for elements visible on initial load
+        // Manually trigger fade-in for elements visible on initial load *after* setting up the observer
         triggerInitialFadeIn();
     } else {
         console.warn("No elements found for fade-in animation with class 'js-fade-in'.");
@@ -171,15 +179,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Contact Form Tag Selection ---
     const tagButtons = document.querySelectorAll('.tag-btn');
-    const selectedServicesInput = document.getElementById('selected_services');
+    const selectedServicesInput = document.getElementById('selected_services'); // Input name updated in HTML
     let selectedServices = [];
 
-    if (tagButtons.length > 0) {
+    if (tagButtons.length > 0 && selectedServicesInput) { // Also check for input existence
         tagButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault(); // Prevent potential form submission if wrapped
                 button.classList.toggle('active');
-                const service = button.textContent.trim();
+                const service = button.textContent.trim(); // Use textContent as the value
                 if (button.classList.contains('active')) {
                     if (!selectedServices.includes(service)) {
                         selectedServices.push(service);
@@ -187,16 +195,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     selectedServices = selectedServices.filter(s => s !== service);
                 }
-                if (selectedServicesInput) {
-                    selectedServicesInput.value = selectedServices.join(', ');
-                } else {
-                    console.warn("Hidden input for selected services not found.");
-                }
+                 selectedServicesInput.value = selectedServices.join(', '); // Update hidden input value
                  // console.log("Selected services:", selectedServicesInput.value); // Debug log
             });
         });
     } else {
-        console.warn("Tag selection buttons not found.");
+         if (!selectedServicesInput) {
+              console.warn("Hidden input for selected services/interests (ID: 'selected_services') not found.");
+         }
+         if (tagButtons.length === 0){
+             console.warn("Tag selection buttons not found.");
+         }
     }
 
     // --- Contact Form Submission Placeholder ---
@@ -207,28 +216,52 @@ document.addEventListener('DOMContentLoaded', () => {
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const companyInput = document.getElementById('company');
+            const messageInput = document.getElementById('message'); // Get message field
+
+            // Basic Validation
+            if (!nameInput || !emailInput) {
+                console.error("Required form fields (name, email) not found.");
+                alert("An error occurred. Please try again later.");
+                return;
+            }
+
+             // Use the up-to-date 'selectedServices' array from the tag selection logic
+             const currentSelectedServices = selectedServicesInput?.value ? selectedServicesInput.value.split(', ') : [];
+
             const formData = {
-                name: nameInput?.value.trim() || '',
-                email: emailInput?.value.trim() || '',
-                company: companyInput?.value.trim() || '',
-                services: selectedServices // Use the array maintained by tag selection
+                name: nameInput.value.trim() || '',
+                email: emailInput.value.trim() || '',
+                company: companyInput?.value.trim() || '', // Optional field
+                message: messageInput?.value.trim() || '', // Optional field
+                interests: currentSelectedServices // Use updated hidden input value
             };
-            if (!formData.name || !formData.email || formData.services.length === 0) {
-                alert('Please fill in required fields (Name*, Email*) and select at least one service mind*.');
+
+            // Perform Validation
+            let errors = [];
+            if (!formData.name) errors.push("Name is required.");
+            if (!formData.email) errors.push("Email is required.");
+            if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                 errors.push("Please enter a valid email address.");
+             }
+             if (formData.interests.length === 0 || (formData.interests.length === 1 && formData.interests[0] === '')) { // Check if empty or just contains empty string from split
+                 errors.push("Please select at least one area of interest.");
+            }
+
+            if (errors.length > 0) {
+                alert("Please correct the following errors:\n- " + errors.join("\n- "));
                 return;
             }
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(formData.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
+
+            // If validation passes (Placeholder Action)
             console.log('Form submitted (placeholder). Data to send:', formData);
-            alert('Thank you for your message! (This is a demo - no email sent)');
+            alert('Thank you for your message! (This is a demo - no data sent)');
+
+            // Reset form
             contactForm.reset();
             // Reset tag buttons and hidden input
             tagButtons.forEach(btn => btn.classList.remove('active'));
-            selectedServices = [];
-            if (selectedServicesInput) selectedServicesInput.value = '';
+            selectedServices = []; // Clear the JS array
+            if (selectedServicesInput) selectedServicesInput.value = ''; // Clear the hidden input
         });
     } else {
         console.warn("Contact form not found.");
