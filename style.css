@@ -1692,3 +1692,101 @@ html.dark-mode {
     .back-to-top-btn { bottom: 15px; right: 15px; width: 35px; height: 35px; font-size: 1.1rem; }
 }
 
+/* --- Preloader Styles --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-color); /* Use theme background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top */
+    opacity: 1;
+    visibility: visible;
+    /* Fade out the entire preloader after content loads & animations play */
+    transition: opacity 0.6s ease-in-out 1s, visibility 0s linear 1.6s; /* Delay fade-out start (1s), hide after fade (1.6s) */
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Prevent interaction after hiding */
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-text {
+    font-size: 2.5rem; /* Adjust size as needed */
+    font-weight: 700;
+    color: var(--heading-color); /* Use theme heading color */
+    margin-bottom: 10px; /* Space between text and arrow */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: preloaderFadeUp 0.8s ease-out 0.1s forwards; /* Fade up, slight delay */
+}
+
+.preloader-arrow {
+    width: 80px; /* Adjust size as needed */
+    height: 16px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: preloaderFadeRight 0.8s ease-out 0.3s forwards; /* Fade right, starts after text fade starts */
+
+    /* Default SVG (Light Mode) - Horizontal Arrow similar to contact */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M 0 10 L 90 10 L 80 0 M 90 10 L 80 20" stroke="black" stroke-width="3" fill="none"/></svg>');
+}
+
+/* Dark Mode Preloader Arrow */
+html.dark-mode .preloader-arrow {
+     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M 0 10 L 90 10 L 80 0 M 90 10 L 80 20" stroke="%238b949e" stroke-width="3" fill="none"/></svg>'); /* Use secondary color stroke */
+}
+
+/* Preloader Animations */
+@keyframes preloaderFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes preloaderFadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Ensure content below preloader is not initially visible */
+body > *:not(#preloader) {
+    /* Add a small opacity transition to prevent flash */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+body.loaded > *:not(#preloader) {
+    opacity: 1;
+}
+
+/* Adjust specific potentially conflicting styles if needed */
+.hero {
+     /* If hero had explicit opacity, override might be needed when body.loaded */
+}
+
+
+/* --- END Preloader Styles --- */

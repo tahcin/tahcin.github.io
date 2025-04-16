@@ -1,3 +1,36 @@
+// --- Preloader Hiding Logic ---
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const body = document.body;
+
+    if (preloader) {
+        // Add 'hidden' class to trigger the fade-out transition defined in CSS
+        preloader.classList.add('hidden');
+
+        // Add a class to the body *after* the preloader fade starts,
+        // so the main content fades in smoothly.
+        // Adjust the timeout delay (1100ms) to start after the preloader's
+        // fade-out begins (which has a 1s delay in the CSS transition).
+        setTimeout(() => {
+            body.classList.add('loaded');
+        }, 1100); // Starts slightly after preloader opacity transition starts
+
+        // Optionally, remove the preloader element from DOM after transition completes
+        // to clean up, though visibility:hidden usually suffices.
+        // Use the total transition time from CSS (1.6s or 1600ms)
+        // setTimeout(() => {
+        //     if (preloader.parentNode) {
+        //        preloader.parentNode.removeChild(preloader);
+        //     }
+        // }, 1600);
+
+    } else {
+        // If preloader isn't found, just show the content immediately
+        body.classList.add('loaded');
+        console.warn("Preloader element (#preloader) not found.");
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Theme Toggle ---
