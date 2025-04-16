@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- 'dark-mode' class will be added here by JS -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add theme color meta tag for browser UI consistency -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#161b22">
     <title>Resume - Tahcin Sarwar</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
@@ -13,7 +16,6 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
-
     <!-- HERO SECTION -->
     <header class="hero">
         <nav class="main-nav">
@@ -30,6 +32,11 @@
                 <a href="#portfolio" class="nav-link">Projects <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
                 <a href="#contact" class="nav-link">Contact <span class="arrow"><i class="ri-arrow-right-up-line"></i></span></a>
             </div>
+
+            <!-- Theme Toggle Button -->
+            <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Switch to dark mode">
+                <!-- Icon will be added by JS -->
+            </button>
 
             <!-- Mobile Navigation Toggle Button -->
             <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Open navigation menu">
@@ -208,7 +215,7 @@
         <!-- EDUCATION SECTION -->
         <section id="education" class="education-section js-fade-in">
             <div class="section-header text-center">
-                 <div class="education-graphic"> 
+                 <div class="education-graphic">
                      <i class="ri-graduation-cap-line"></i>
                 </div>
                 <h2>ACADEMIC BACKGROUND</h2>

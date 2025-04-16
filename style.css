@@ -1,23 +1,119 @@
 /* --- Base Styles & Variables --- */
 :root {
-    --bg-color: #fff; /* Light grey background */
+    /* Light Mode Colors */
+    --bg-color: #fff;
+    --bg-secondary-color: #f9fafb; /* Used for sections like services, stats */
     --text-color: #333;
     --heading-color: #111;
-    --primary-color: #000; /* Black for buttons, highlights */
-    --secondary-color: #555;
+    --primary-color: #000; /* Black for primary buttons, highlights */
+    --primary-hover-color: #444;
+    --secondary-color: #555; /* Subdued text */
     --border-color: #ddd;
-    --white: #f9fafb;
+    --card-border-color: #ddd;
+    --white: #fff;
+    --primary-btn-text-color: #fff;
+    --secondary-btn-text-color: #000;
+    --secondary-btn-bg-color: transparent;
+    --secondary-btn-hover-bg-color: #f9fafb;
+    --secondary-btn-border-color: #ddd;
+    --tag-bg-color: #fff;
+    --tag-border-color: #ddd;
+    --tag-text-color: #555;
+    --tag-active-bg-color: #000;
+    --tag-active-text-color: #fff;
+    --tag-hover-bg-color: #f0f0f0;
+    --tag-hover-border-color: #bbb;
+    --form-input-bg: transparent;
+    --form-input-border: #ddd;
+    --form-input-focus-border: #000;
+    --placeholder-color: #aaa;
+    --nav-bg-color: rgba(255, 255, 255, 0.95);
+    --nav-text-color: #333;
+    --nav-link-hover-color: #000;
+    --nav-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --highlight-card-bg: #000;
+    --highlight-card-text: #fff;
+    --highlight-card-text-muted: rgba(255, 255, 255, 0.85);
+    --highlight-experience-bg: #000;
+    --highlight-experience-text: #fff;
+    --highlight-experience-text-muted: rgba(255, 255, 255, 0.85);
+    --roadmap-line-color: #ddd;
+    --roadmap-dot-color: #000;
+    --roadmap-dot-border: #fff;
+    --roadmap-dot-shadow: 0 0 0 3px var(--roadmap-dot-color);
+    --section-graphic-color: #000;
+    --education-item-border-left: #000;
+    --popup-bg: #fff;
+    --popup-border: #ddd;
+    --highlight-text-bg: #f0f0f0;
+    --highlight-text-color: #111;
+    --photo-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --svg-path-color: black; /* For inline SVG backgrounds */
+
+    /* Gradients (Keep or adjust as needed) */
     --gradient-start: #ffcc00;
     --gradient-mid: #ff6b6b;
     --gradient-end: #5f27cd;
-    /* Updated Gradient for Text */
     --gradient-text-start: #ff3c8e;
     --gradient-text-mid: #a145f4;
     --gradient-text-end: #1e90ff;
 
+    /* General */
     --font-primary: 'Poppins', sans-serif;
     --container-width: 1140px;
     --nav-height: 60px; /* Define nav height */
+}
+
+/* Dark Mode Variables - GitHub Inspired */
+html.dark-mode {
+    --bg-color: #0d1117; /* Very dark grey, almost black */
+    --bg-secondary-color: #161b22; /* Slightly lighter dark grey for sections */
+    --text-color: #c9d1d9; /* Light grey text */
+    --heading-color: #f0f6fc; /* Near white headings */
+    --primary-color: #bb86fc; /* Using a purple accent for primary in dark mode */
+    --primary-hover-color: #a16ae8;
+    --secondary-color: #8b949e; /* Grey for subdued text */
+    --border-color: #30363d; /* Darker grey border */
+    --card-border-color: #30363d;
+    --white: #f0f6fc; /* Represents the brightest text/elements */
+    --primary-btn-text-color: #0d1117; /* Dark text on purple button */
+    --secondary-btn-text-color: #c9d1d9; /* Light grey text */
+    --secondary-btn-bg-color: transparent;
+    --secondary-btn-hover-bg-color: #21262d; /* Darker grey hover */
+    --secondary-btn-border-color: #30363d;
+    --tag-bg-color: #21262d; /* Dark tag background */
+    --tag-border-color: #30363d;
+    --tag-text-color: #8b949e;
+    --tag-active-bg-color: #bb86fc; /* Purple active */
+    --tag-active-text-color: #0d1117; /* Dark text on active tag */
+    --tag-hover-bg-color: #30363d;
+    --tag-hover-border-color: #484f58;
+    --form-input-bg: transparent;
+    --form-input-border: #30363d;
+    --form-input-focus-border: #bb86fc; /* Purple focus */
+    --placeholder-color: #6e7681;
+    --nav-bg-color: rgba(22, 27, 34, 0.9); /* Dark nav background */
+    --nav-text-color: #c9d1d9;
+    --nav-link-hover-color: #f0f6fc;
+    --nav-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    --highlight-card-bg: #bb86fc; /* Purple background */
+    --highlight-card-text: #0d1117; /* Dark text */
+    --highlight-card-text-muted: rgba(13, 17, 23, 0.85);
+    --highlight-experience-bg: #bb86fc; /* Purple highlight */
+    --highlight-experience-text: #0d1117;
+    --highlight-experience-text-muted: rgba(13, 17, 23, 0.85);
+    --roadmap-line-color: #30363d;
+    --roadmap-dot-color: #bb86fc;
+    --roadmap-dot-border: #161b22;
+    --roadmap-dot-shadow: 0 0 0 3px var(--roadmap-dot-color);
+    --section-graphic-color: #bb86fc;
+    --education-item-border-left: #bb86fc;
+    --popup-bg: #161b22;
+    --popup-border: #30363d;
+    --highlight-text-bg: #21262d; /* Darker background for highlighted text */
+    --highlight-text-color: #f0f6fc;
+    --photo-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    --svg-path-color: #c9d1d9; /* Light grey for SVG paths */
 }
 
 * {
@@ -29,6 +125,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px; /* Base font size */
+    color-scheme: light dark; /* Indicate theme support */
 }
 
 body {
@@ -38,6 +135,7 @@ body {
     line-height: 1.7;
     overflow-x: hidden; /* Prevent horizontal scroll */
     position: relative; /* Needed for overlay/sidebar interaction */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Utility class to prevent scrolling when sidebar/popup is open */
@@ -95,13 +193,34 @@ i { /* Basic icon styling */
     line-height: 1.5; /* Ensure text is vertically centered */
 }
 .btn i { margin-left: 5px; font-size: 1.1em;} /* Style icons in buttons */
-.btn-primary { background-color: var(--primary-color); color: var(--white); margin-right: 10px;}
-.btn-primary:hover { background-color: #444; transform: translateY(-2px); color: var(--white);}
-.btn-secondary { background-color: transparent; color: var(--primary-color); border: 1px solid var(--border-color); padding-left: 20px; padding-right: 20px;}
-.btn-secondary:hover { background-color: var(--white); border-color: var(--primary-color); }
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--primary-btn-text-color);
+    margin-right: 10px;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    color: var(--primary-btn-text-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-btn-bg-color);
+    color: var(--secondary-btn-text-color);
+    border: 1px solid var(--secondary-btn-border-color);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.btn-secondary:hover {
+    background-color: var(--secondary-btn-hover-bg-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color); /* Change text color on hover to primary */
+}
 .btn-secondary i { margin-left: 5px; }
-.btn-dark { background-color: var(--primary-color); color: var(--white); }
-.btn-dark:hover { background-color: #444; color: var(--white);}
+
+.btn-dark { background-color: var(--heading-color); color: var(--bg-color); } /* Contrast button */
+.btn-dark:hover { background-color: var(--secondary-color); color: var(--bg-color);}
 
 
 /* --- Header / Hero Section --- */
@@ -121,8 +240,10 @@ i { /* Basic icon styling */
     right: 0;
     z-index: 1000;
     height: var(--nav-height);
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    background-color: var(--nav-bg-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: var(--nav-shadow);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -130,17 +251,22 @@ i { /* Basic icon styling */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.main-nav .logo { font-weight: 800; font-size: 1.5rem; }
+.main-nav .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--heading-color); /* Ensure logo text uses heading color */
+}
 
 .main-nav .nav-links-container {
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 .main-nav .nav-links-container a {
     margin-left: 30px;
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: var(--nav-text-color); /* Use nav text color */
 }
 .main-nav .nav-links-container .arrow {
     display: inline-block;
@@ -149,10 +275,30 @@ i { /* Basic icon styling */
     transition: transform 0.3s ease;
 }
 .main-nav .nav-links-container a:hover {
-    color: var(--primary-color);
+    color: var(--nav-link-hover-color); /* Use nav link hover color */
 }
 .main-nav .nav-links-container a:hover .arrow {
     transform: translate(3px, -3px);
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color); /* Use secondary color for icon */
+    font-size: 1.5rem; /* Adjust size as needed */
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    margin-left: 20px; /* Space from nav links */
+    transition: color 0.3s ease;
+    order: 3; /* Position after nav links container */
+}
+.theme-toggle-btn:hover {
+    color: var(--primary-color); /* Use primary color on hover */
+}
+.theme-toggle-btn i {
+    display: block; /* Ensure icon behaves like a block */
 }
 
 .nav-toggle-btn {
@@ -160,7 +306,7 @@ i { /* Basic icon styling */
     background: none;
     border: none;
     font-size: 1.8rem;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Use primary color */
     cursor: pointer;
     padding: 5px;
     line-height: 1;
@@ -170,6 +316,7 @@ i { /* Basic icon styling */
     right: 15%;
     top: 50%;
     transform: translateY(-50%);
+    order: 4; /* Position after theme toggle */
 }
 
 .nav-close-btn {
@@ -196,7 +343,7 @@ i { /* Basic icon styling */
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Keep dark overlay */
     z-index: 998;
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0.4s;
@@ -264,8 +411,14 @@ i { /* Basic icon styling */
     border-radius: 0;
     z-index: 2;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: var(--photo-shadow);
+    /* Add subtle border in dark mode for definition */
+    border: 1px solid transparent;
 }
+html.dark-mode .hero-photo {
+    border: 0px solid var(--border-color);
+}
+
 .hero-gradient {
     position: absolute;
     top: -60px;
@@ -279,6 +432,10 @@ i { /* Basic icon styling */
     z-index: 0;
     animation: blink 3s infinite ease-in-out alternate;
 }
+html.dark-mode .hero-gradient {
+    opacity: 0.3; /* Tone down gradient in dark mode */
+}
+
 .hero-gradient-2 {
     position: absolute;
     top: 400px;
@@ -292,19 +449,35 @@ i { /* Basic icon styling */
     z-index: 0;
      animation: blink 3.5s infinite ease-in-out alternate-reverse;
 }
+html.dark-mode .hero-gradient-2 {
+    opacity: 0.25;
+}
+
 .hero-squiggle {
     position: absolute;
     bottom: 20px;
     right: 10px;
     width: 40px;
     height: 50px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 10 10 Q 30 50 10 90" stroke="black" stroke-width="5" fill="none"/><path d="M 25 10 Q 45 50 25 90" stroke="black" stroke-width="5" fill="none"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 10 10 Q 30 50 10 90" stroke="{var(--svg-path-color)}" stroke-width="5" fill="none"/><path d="M 25 10 Q 45 50 25 90" stroke="{var(--svg-path-color)}" stroke-width="5" fill="none"/></svg>');
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 3;
     transform: rotate(15deg);
     opacity: 0.7;
+    /* Update SVG stroke color via CSS variable */
+    stroke: var(--svg-path-color);
 }
+/* Re-declare with actual color for default */
+.hero-squiggle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 10 10 Q 30 50 10 90" stroke="black" stroke-width="5" fill="none"/><path d="M 25 10 Q 45 50 25 90" stroke="black" stroke-width="5" fill="none"/></svg>');
+}
+/* Re-declare with actual color for dark mode */
+html.dark-mode .hero-squiggle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 10 10 Q 30 50 10 90" stroke="%23c9d1d9" stroke-width="5" fill="none"/><path d="M 25 10 Q 45 50 25 90" stroke="%23c9d1d9" stroke-width="5" fill="none"/></svg>');
+    opacity: 0.5;
+}
+
 
 .hero-tags-container {
     width: 100%;
@@ -400,7 +573,7 @@ i { /* Basic icon styling */
 /* --- Services Section --- */
 .services-section {
     padding: 80px 15%;
-    background-color: var(--white);
+    background-color: var(--bg-secondary-color); /* Use secondary bg */
     position: relative;
 }
 .services-section .section-header {
@@ -435,7 +608,7 @@ i { /* Basic icon styling */
     width: 30px;
     height: 30px;
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--primary-btn-text-color); /* Use button text color */
     border-radius: 0;
     margin-left: 15px;
     transform: rotate(90deg);
@@ -448,31 +621,38 @@ i { /* Basic icon styling */
     gap: 30px;
 }
 .service-card {
-    background-color: var(--white);
+    background-color: var(--bg-color); /* Use base bg for cards */
     padding: 40px 30px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--card-border-color); /* Use card border */
     border-radius: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-.service-card.highlight-card {
-    background-color: var(--primary-color);
-    color: var(--white);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     border-color: var(--primary-color);
 }
+html.dark-mode .service-card:hover {
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card.highlight-card {
+    background-color: var(--highlight-card-bg);
+    color: var(--highlight-card-text);
+    border-color: var(--highlight-card-bg);
+}
 .service-card.highlight-card h3,
-.service-card.highlight-card p,
 .service-card.highlight-card .read-more,
 .service-card.highlight-card .service-icon {
-    color: var(--white);
+    color: var(--highlight-card-text);
 }
-.service-card.highlight-card p { opacity: 0.85; }
-.service-card h3 { font-size: 1.3rem; margin-top: 15px; margin-bottom: 15px;}
+.service-card.highlight-card p {
+    color: var(--highlight-card-text-muted);
+}
+
+.service-card h3 { font-size: 1.3rem; margin-top: 15px; margin-bottom: 15px; color: var(--heading-color);}
 .service-icon {
     font-size: 2.5rem;
     margin-bottom: 15px;
@@ -505,18 +685,19 @@ i { /* Basic icon styling */
 /* --- Experience Section --- */
 .experience-section {
     padding: 80px 15%;
+    background-color: var(--bg-color);
 }
 .section-graphic {
     width: 40px; height: 40px;
     border-radius: 0;
-    background: radial-gradient(circle, var(--primary-color) 30%, transparent 30%);
+    background: radial-gradient(circle, var(--section-graphic-color) 30%, transparent 30%);
     background-size: 8px 8px; background-position: center;
     margin: 0 auto 1.5rem auto;
     opacity: 0.5;
 }
 .section-graphic-lines {
      width: 60px; height: 20px;
-     background: repeating-linear-gradient(135deg, var(--primary-color), var(--primary-color) 3px, transparent 3px, transparent 6px);
+     background: repeating-linear-gradient(135deg, var(--section-graphic-color), var(--section-graphic-color) 3px, transparent 3px, transparent 6px);
       margin: 1.5rem auto 0 auto;
       opacity: 0.5;
 }
@@ -534,7 +715,7 @@ i { /* Basic icon styling */
     left: 50%;
     transform: translateX(-50%);
     width: 3px;
-    background-color: var(--border-color);
+    background-color: var(--roadmap-line-color);
     z-index: 0;
 }
 .experience-item.roadmap-item {
@@ -542,10 +723,10 @@ i { /* Basic icon styling */
     width: calc(50% - 40px);
     margin-bottom: 50px;
     padding: 25px 30px;
-    background-color: var(--white);
+    background-color: var(--bg-secondary-color); /* Use secondary for contrast */
     border: 1px solid var(--border-color);
     border-radius: 0;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease;
     z-index: 1;
     display: flex;
 }
@@ -554,17 +735,21 @@ i { /* Basic icon styling */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     border-color: var(--primary-color);
 }
+html.dark-mode .experience-item.roadmap-item:hover {
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .experience-item.roadmap-item::before {
     content: '';
     position: absolute;
     top: 30px;
     width: 15px;
     height: 15px;
-    background-color: var(--primary-color);
-    border: 2px solid var(--white);
+    background-color: var(--roadmap-dot-color);
+    border: 2px solid var(--roadmap-dot-border);
     border-radius: 50%;
     z-index: 2;
-    box-shadow: 0 0 0 3px var(--primary-color);
+    box-shadow: var(--roadmap-dot-shadow);
 }
 .experience-item.roadmap-item:nth-child(odd) {
     margin-left: 0;
@@ -585,21 +770,24 @@ i { /* Basic icon styling */
     transform: translateX(50%);
 }
 .experience-item.highlight-experience {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-color: var(--primary-color);
+    background-color: var(--highlight-experience-bg);
+    color: var(--highlight-experience-text);
+    border-color: var(--highlight-experience-bg);
 }
 .experience-item.highlight-experience::before {
-    background-color: var(--primary-color);
-    box-shadow: 0 0 0 3px var(--primary-color);
+    background-color: var(--roadmap-dot-color); /* Keep dot consistent */
+    box-shadow: var(--roadmap-dot-shadow);
+     border-color: var(--highlight-experience-bg); /* Match bg */
 }
 .experience-item.highlight-experience h4,
-.experience-item.highlight-experience p,
-.experience-item.highlight-experience .exp-duration {
-    color: var(--white);
+.experience-item.highlight-experience .exp-details p {
+    color: var(--highlight-experience-text);
 }
-.experience-item.highlight-experience .exp-details p,
-.experience-item.highlight-experience .exp-desc { opacity: 0.85; }
+.experience-item.highlight-experience .exp-desc,
+.experience-item.highlight-experience .exp-duration {
+    color: var(--highlight-experience-text-muted);
+}
+
 .exp-content { width: 100%; }
 .exp-details { margin-bottom: 0; }
 .exp-details h4 {
@@ -607,21 +795,18 @@ i { /* Basic icon styling */
     font-size: 1.1rem;
     color: var(--heading-color);
 }
-.experience-item.highlight-experience .exp-details h4 { color: var(--white); }
 .exp-details p {
     margin-bottom: 10px;
     font-size: 0.9rem;
     color: var(--secondary-color);
     font-weight: 600;
 }
-.experience-item.highlight-experience .exp-details p { color: rgba(255, 255, 255, 0.9); }
 .exp-desc {
     font-size: 0.9rem;
     color: var(--secondary-color);
     line-height: 1.6;
     margin-bottom: 0;
 }
-.experience-item.highlight-experience .exp-desc { color: rgba(255, 255, 255, 0.8); }
 .exp-duration {
     font-weight: 600;
     font-size: 0.8rem;
@@ -632,20 +817,19 @@ i { /* Basic icon styling */
     margin-bottom: 15px;
     text-align: left;
 }
-.experience-item.highlight-experience .exp-duration { color: rgba(255, 255, 255, 0.7); }
 
 
 /* --- Education Section --- */
 .education-section {
     padding: 80px 15%;
-    background-color: var(--white);
+    background-color: var(--bg-secondary-color); /* Use secondary */
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
 .education-graphic {
     width: 60px;
     height: 60px;
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgba(0, 0, 0, 0.04); /* Keep subtle */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -654,6 +838,9 @@ i { /* Basic icon styling */
     font-size: 2rem;
     color: var(--primary-color);
     opacity: 0.7;
+}
+html.dark-mode .education-graphic {
+     background-color: rgba(255, 255, 255, 0.06);
 }
 .education-grid {
     display: grid;
@@ -665,17 +852,23 @@ i { /* Basic icon styling */
     display: flex;
     gap: 20px;
     align-items: flex-start;
-    background-color: var(--white);
+    background-color: var(--bg-color); /* Use base bg */
     padding: 30px;
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--primary-color);
-    transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out;
+    border: 1px solid var(--card-border-color);
+    border-left: 4px solid var(--education-item-border-left);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease, border-color 0.3s ease;
     border-radius: 0;
 }
 .education-item:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
     transform: translateY(-3px);
+    border-color: var(--primary-color);
+     border-left-color: var(--primary-color);
 }
+html.dark-mode .education-item:hover {
+     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
 .education-icon-wrapper {
     flex-shrink: 0;
     padding-top: 5px;
@@ -718,11 +911,11 @@ i { /* Basic icon styling */
 /* --- Portfolio Section --- */
 .portfolio-section {
     padding: 80px 15%;
-    background-color: var(--white);
+    background-color: var(--bg-color); /* Use base */
 }
 .section-dots-graphic {
      width: 60px; height: 60px; margin: 0 auto 1.5rem auto;
-     background: radial-gradient(circle, var(--primary-color) 1.5px, transparent 1.5px);
+     background: radial-gradient(circle, var(--section-graphic-color) 1.5px, transparent 1.5px);
      background-size: 8px 8px;
      opacity: 0.4;
 }
@@ -742,7 +935,7 @@ i { /* Basic icon styling */
     overflow: hidden;
     border-radius: 0;
     border: 1px solid var(--border-color);
-    background-color: var(--white);
+    background-color: var(--bg-secondary-color); /* Use secondary for image bg */
 }
 .project-image-container img {
     transition: transform 0.4s ease;
@@ -759,8 +952,8 @@ i { /* Basic icon styling */
 }
 .project-tag {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--primary-color); /* Consistent tag bg */
+    color: var(--primary-btn-text-color); /* Use btn text color */
     padding: 5px 15px;
     border-radius: 0;
     font-size: 0.8rem;
@@ -774,6 +967,7 @@ i { /* Basic icon styling */
     font-size: 1.6rem;
     margin-bottom: 10px;
     line-height: 1.4;
+    color: var(--heading-color);
 }
 .project-desc {
     font-size: 0.95rem;
@@ -807,6 +1001,9 @@ i { /* Basic icon styling */
     gap: 50px;
     position: relative;
     overflow: hidden;
+    background-color: var(--bg-secondary-color); /* Use secondary */
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 .feedback-content { flex: 1 1 55%; min-width: 300px; z-index: 1;}
 .feedback-header { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 30px;}
@@ -824,20 +1021,29 @@ i { /* Basic icon styling */
     position: relative;
 }
 .client-info { position: relative; }
-.client-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; }
+.client-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; color: var(--heading-color); }
 .client-role { font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 20px; }
 .client-squiggle {
      width: 100px; height: 10px; margin-bottom: 20px;
-     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M 0 5 Q 12.5 0 25 5 T 50 5 T 75 5 T 100 5" stroke="black" stroke-width="2" fill="none"/></svg>');
+     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M 0 5 Q 12.5 0 25 5 T 50 5 T 75 5 T 100 5" stroke="{var(--svg-path-color)}" stroke-width="2" fill="none"/></svg>');
      background-repeat: no-repeat; background-size: contain; opacity: 0.8;
+}
+/* Re-declare with actual color for default */
+.client-squiggle {
+     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M 0 5 Q 12.5 0 25 5 T 50 5 T 75 5 T 100 5" stroke="black" stroke-width="2" fill="none"/></svg>');
+}
+/* Re-declare with actual color for dark mode */
+html.dark-mode .client-squiggle {
+     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M 0 5 Q 12.5 0 25 5 T 50 5 T 75 5 T 100 5" stroke="%238b949e" stroke-width="2" fill="none"/></svg>'); /* Using secondary color */
+     opacity: 0.6;
 }
 
 
 /* --- Stats Section --- */
 .stats-section {
     padding: 60px 15%;
-    background-color: var(--white);
-    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-secondary-color); /* Use secondary */
+    /* border-top: 1px solid var(--border-color); */ /* Remove top border if testimonial has bottom */
     border-bottom: 1px solid var(--border-color);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -870,7 +1076,7 @@ i { /* Basic icon styling */
     padding: 80px 15%;
     text-align: center;
     position: relative;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color); /* Use base */
 }
 .contact-section h2 {
     font-size: 3rem;
@@ -878,21 +1084,31 @@ i { /* Basic icon styling */
     line-height: 1.3;
 }
 .highlight-text {
-    background-color: #f0f0f0;
+    background-color: var(--highlight-text-bg);
     padding: 2px 10px;
     display: inline;
     line-height: 1.5;
     border-radius: 6px;
-    color: var(--heading-color);
+    color: var(--highlight-text-color);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 }
 .contact-subtitle { font-size: 1.1rem; margin-bottom: 30px; color: var(--secondary-color); max-width: 600px; margin-left: auto; margin-right: auto;}
 .contact-arrow {
     width: 100px; height: 20px; margin: 0 auto 40px auto;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M 0 10 L 90 10 L 80 0 M 90 10 L 80 20" stroke="black" stroke-width="3" fill="none"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M 0 10 L 90 10 L 80 0 M 90 10 L 80 20" stroke="{var(--svg-path-color)}" stroke-width="3" fill="none"/></svg>');
      background-repeat: no-repeat; background-size: contain; opacity: 0.8;
 }
+/* Re-declare with actual color for default */
+.contact-arrow {
+     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M 0 10 L 90 10 L 80 0 M 90 10 L 80 20" stroke="black" stroke-width="3" fill="none"/></svg>');
+}
+/* Re-declare with actual color for dark mode */
+html.dark-mode .contact-arrow {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M 0 10 L 90 10 L 80 0 M 90 10 L 80 20" stroke="%238b949e" stroke-width="3" fill="none"/></svg>'); /* Use secondary color */
+    opacity: 0.6;
+}
+
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
@@ -906,6 +1122,7 @@ i { /* Basic icon styling */
     margin-bottom: 8px;
     font-weight: 600;
     font-size: 0.9rem;
+    color: var(--text-color); /* Ensure label uses text color */
 }
 .contact-form input[type="text"],
 .contact-form input[type="email"],
@@ -913,12 +1130,12 @@ i { /* Basic icon styling */
     width: 100%;
     padding: 15px 5px;
     border: none;
-    border-bottom: 1px solid var(--border-color);
-    background-color: transparent;
+    border-bottom: 1px solid var(--form-input-border);
+    background-color: var(--form-input-bg);
     font-family: var(--font-primary);
     font-size: 1rem;
     color: var(--text-color);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     border-radius: 0;
     appearance: none;
 }
@@ -926,15 +1143,15 @@ i { /* Basic icon styling */
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-bottom-color: var(--primary-color);
+    border-bottom-color: var(--form-input-focus-border);
 }
 .contact-form textarea {
     resize: vertical;
     min-height: 80px;
 }
-::placeholder { color: #aaa; font-size: 0.95rem;}
+::placeholder { color: var(--placeholder-color); font-size: 0.95rem;}
 
-/* UPDATED Tag Selection Styles */
+/* UPDATED Tag Selection Styles with Theme */
 .tag-selection {
     display: flex;
     flex-wrap: wrap; /* Allows buttons to wrap to the next line */
@@ -943,9 +1160,9 @@ i { /* Basic icon styling */
 }
 .tag-btn {
     padding: 8px 18px; /* Default padding */
-    border: 1px solid var(--border-color);
-    background-color: var(--white);
-    color: var(--secondary-color);
+    border: 1px solid var(--tag-border-color);
+    background-color: var(--tag-bg-color);
+    color: var(--tag-text-color);
     border-radius: 0;
     cursor: pointer;
     font-size: 0.85rem; /* Default font size */
@@ -956,19 +1173,19 @@ i { /* Basic icon styling */
 }
 .tag-btn:hover,
 .tag-btn:focus-visible { /* Added focus-visible for keyboard navigation */
-    background-color: #f0f0f0; /* Subtle hover/focus */
-    border-color: #bbb;
+    background-color: var(--tag-hover-bg-color); /* Subtle hover/focus */
+    border-color: var(--tag-hover-border-color);
     outline: none; /* Remove default focus outline if you add custom */
 }
 .tag-btn.active {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-color: var(--primary-color);
+    background-color: var(--tag-active-bg-color);
+    color: var(--tag-active-text-color);
+    border-color: var(--tag-active-bg-color);
 }
 .tag-btn.active:hover,
 .tag-btn.active:focus-visible { /* Ensure hover/focus on active state is distinct or same */
-     background-color: #444; /* Slightly darker on hover/focus when active */
-     border-color: #444;
+     opacity: 0.9; /* Slightly dim active on hover */
+     border-color: var(--tag-active-bg-color);
      outline: none; /* Remove default focus outline if you add custom */
 }
 /* End Updated Tag Selection Styles */
@@ -978,22 +1195,32 @@ i { /* Basic icon styling */
     padding: 15px 45px;
     position: relative;
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--primary-btn-text-color);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     border-radius: 0;
 }
-.btn-submit:hover { background-color: #444; transform: translateY(-2px);}
+.btn-submit:hover { background-color: var(--primary-hover-color); transform: translateY(-2px);}
 .submit-arrow {
      position: absolute; top: 50%; right: -40px; transform: translateY(-50%);
      width: 30px; height: 30px;
-     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 70 30 Q 85 40 90 50 Q 85 60 70 70 M 85 50 L 10 50" stroke="black" stroke-width="5" fill="none" stroke-linecap="round"/></svg>');
+     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 70 30 Q 85 40 90 50 Q 85 60 70 70 M 85 50 L 10 50" stroke="{var(--svg-path-color)}" stroke-width="5" fill="none" stroke-linecap="round"/></svg>');
      background-size: contain; background-repeat: no-repeat;
      opacity: 0.8;
      transition: transform 0.3s ease;
 }
+/* Re-declare with actual color for default */
+.submit-arrow {
+     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 70 30 Q 85 40 90 50 Q 85 60 70 70 M 85 50 L 10 50" stroke="black" stroke-width="5" fill="none" stroke-linecap="round"/></svg>');
+}
+/* Re-declare with actual color for dark mode */
+html.dark-mode .submit-arrow {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M 70 30 Q 85 40 90 50 Q 85 60 70 70 M 85 50 L 10 50" stroke="%23c9d1d9" stroke-width="5" fill="none" stroke-linecap="round"/></svg>'); /* Light grey arrow */
+      opacity: 0.6;
+}
+
 .btn-submit:hover .submit-arrow { transform: translate(5px, -50%) rotate(5deg); }
 .response-note {
     margin-top: 20px;
@@ -1012,7 +1239,7 @@ i { /* Basic icon styling */
     gap: 20px;
     font-size: 0.9rem;
     color: var(--secondary-color);
-    background-color: var(--white);
+    background-color: var(--bg-secondary-color); /* Use secondary */
 }
 .footer-links { display: flex; flex-wrap: wrap; gap: 15px 25px; }
 .footer-links a {
@@ -1023,7 +1250,7 @@ i { /* Basic icon styling */
     gap: 5px;
 }
 .footer-links a:hover { color: var(--primary-color); }
-.copyright { font-weight: 600; color: var(--primary-color); white-space: nowrap; margin-bottom: 0%;}
+.copyright { font-weight: 600; color: var(--heading-color); white-space: nowrap; margin-bottom: 0%;}
 
 /* --- Back to Top Button --- */
 .back-to-top-btn {
@@ -1031,7 +1258,7 @@ i { /* Basic icon styling */
     bottom: 30px;
     right: 30px;
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--primary-btn-text-color);
     border: none;
     border-radius: 0;
     width: 45px;
@@ -1055,7 +1282,7 @@ i { /* Basic icon styling */
     pointer-events: auto;
     transform: translateY(0);
 }
-.back-to-top-btn:hover { background-color: #444; }
+.back-to-top-btn:hover { background-color: var(--primary-hover-color); }
 
 /* --- Form Submission Popup Styles --- */
 .form-popup-overlay {
@@ -1064,7 +1291,7 @@ i { /* Basic icon styling */
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1082,17 +1309,17 @@ i { /* Basic icon styling */
 }
 
 .form-popup {
-    background-color: var(--white);
+    background-color: var(--popup-bg);
     padding: 35px 45px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--popup-border);
     max-width: 480px;
     width: 100%; /* Responsive width */
     text-align: center;
     border-radius: 0; /* Match sharp edges */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Slightly stronger shadow */
     transform: scale(0.95) translateY(10px);
     opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .form-popup-overlay.active .form-popup {
@@ -1114,16 +1341,6 @@ i { /* Basic icon styling */
     margin-right: 0; /* Reset margin inherited from .btn-primary potentially */
 }
 
-.form-popup--success .form-popup-message {
-    /* color: green; */ 
-}
-.form-popup--error .form-popup-message {
-    /* color: #cc0000; */ 
-    font-weight: 600;
-}
-.form-popup--error .form-popup-close-btn {
-    /* background-color: #cc0000; */ 
-}
 /* --- End Form Submission Popup Styles --- */
 
 /* --- Animations --- */
@@ -1133,10 +1350,21 @@ i { /* Basic icon styling */
     40% { transform: rotate(-4deg); } 50% { transform: rotate(10deg); }
     60% { transform: rotate(0deg); } 100% { transform: rotate(0deg); }
 }
-@keyframes blink {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+:root {
+  --blink-opacity-start-end: 0.5;
+  --blink-opacity-mid: 1;
 }
+
+html.dark-mode {
+  --blink-opacity-start-end: 0.3; /* Dimmed blink */
+  --blink-opacity-mid: 0.6;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: var(--blink-opacity-start-end); }
+  50% { opacity: var(--blink-opacity-mid); }
+}
+
 .gradient-text {
     background: linear-gradient(90deg, var(--gradient-text-start), var(--gradient-text-mid), var(--gradient-text-end));
     background-size: 300% 100%;
@@ -1144,10 +1372,13 @@ i { /* Basic icon styling */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
+    color: transparent; /* Fallback */
     animation: moveGradient 3s linear infinite alternate;
     display: inline-block;
 }
+/* Consider adjusting gradient colors for dark mode if contrast is poor */
+/* html.dark-mode .gradient-text { ... } */
+
 @keyframes moveGradient {
     0% { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
@@ -1165,6 +1396,8 @@ i { /* Basic icon styling */
     .hero { padding: var(--nav-height) 12% 60px 12%; }
     .main-nav { padding: 0 12%; }
     .nav-toggle-btn { right: 12%; }
+    /* Adjust theme toggle position */
+    .theme-toggle-btn { margin-left: 15px; }
 
     .hero-content { gap: 30px; }
     .hero-text { flex-basis: 60%;}
@@ -1195,7 +1428,18 @@ i { /* Basic icon styling */
     .nav-toggle-btn {
         display: block;
         right: 8%;
+        order: 4; /* Ensure it's last */
     }
+    /* Position theme toggle before mobile toggle */
+    .theme-toggle-btn {
+        order: 3;
+        position: absolute;
+        right: calc(8% + 50px); /* Position relative to mobile toggle */
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+    }
+
 
     .services-section,
     .experience-section,
@@ -1223,15 +1467,16 @@ i { /* Basic icon styling */
         width: 280px;
         max-width: 80%;
         height: 100vh;
-        background-color: var(--white);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        background-color: var(--bg-color); /* Use theme bg */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
         z-index: 999;
         padding: 80px 0 30px 0;
-        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0.4s;
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0.4s, background-color 0.3s ease;
         overflow-y: auto;
         border-radius: 0;
         visibility: hidden;
         will-change: transform;
+        border-left: 1px solid var(--border-color); /* Add border */
     }
     .main-nav .nav-links-container a {
         margin-left: 0;
@@ -1239,7 +1484,7 @@ i { /* Basic icon styling */
     .nav-links-container.active {
         transform: translateX(0);
         visibility: visible;
-        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0s;
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 0s, background-color 0.3s ease;
     }
     .nav-links-container.active .nav-close-btn { display: block; }
     .nav-links-container a {
@@ -1247,18 +1492,18 @@ i { /* Basic icon styling */
         padding: 15px 30px;
         font-size: 1rem;
         font-weight: 600;
-        color: var(--heading-color);
+        color: var(--heading-color); /* Use heading color */
         width: 100%;
         border-bottom: 1px solid var(--border-color);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: background-color 0.2s ease;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.3s ease;
     }
     .nav-links-container a:last-child { border-bottom: none; }
     .nav-links-container a:hover {
         color: var(--primary-color);
-        background-color: #f7f7f7;
+        background-color: var(--bg-secondary-color); /* Use secondary bg for hover */
     }
     .nav-links-container a .arrow {
         font-size: 1em;
@@ -1322,6 +1567,9 @@ i { /* Basic icon styling */
      .hero { padding: var(--nav-height) 5% 40px 5%; }
      .main-nav { padding: 0 5%; }
      .nav-toggle-btn { right: 5%; }
+     /* Adjust theme toggle position */
+     .theme-toggle-btn { right: calc(5% + 50px); font-size: 1.4rem;}
+
 
     .services-section,
     .experience-section,
@@ -1342,8 +1590,8 @@ i { /* Basic icon styling */
     /* Roadmap Mobile Small */
     .experience-list.roadmap-list { padding-left: 30px; }
     .experience-item.roadmap-item { padding: 20px 25px; }
-    .experience-item.roadmap-item::before { left: -25px; width: 12px; height: 12px; border-width: 2px; box-shadow: 0 0 0 2px var(--primary-color); }
-    .experience-item.highlight-experience::before { box-shadow: 0 0 0 2px var(--primary-color); }
+    .experience-item.roadmap-item::before { left: -25px; width: 12px; height: 12px; border-width: 2px; box-shadow: 0 0 0 2px var(--roadmap-dot-color); }
+
     .education-graphic { width: 50px; height: 50px; font-size: 1.8rem;}
     .education-item { gap: 15px; padding: 20px; }
     .education-icon-wrapper i { font-size: 2rem; }
@@ -1364,6 +1612,9 @@ i { /* Basic icon styling */
      h2 { font-size: 1.4rem; }
      .main-nav .logo { font-size: 1.3rem;}
      .nav-toggle-btn { font-size: 1.6rem; }
+     /* Adjust theme toggle */
+      .theme-toggle-btn { right: calc(5% + 45px); font-size: 1.3rem;}
+
 
      /* :root { --nav-height: 60px; } */ /* Optional: Reduce nav height */
 
@@ -1388,10 +1639,10 @@ i { /* Basic icon styling */
 
     /* Roadmap Mobile Extra Small */
     .experience-list.roadmap-list { padding-left: 25px; margin-top: 40px; }
-    .experience-item.roadmap-item::before { display: none; }
+    .experience-item.roadmap-item::before { display: none; } /* Hide dot */
     .experience-list.roadmap-list::before { left: 10px; width: 2px; }
     .experience-item.roadmap-item { border-left: 3px solid var(--border-color); padding-left: 20px; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-    .experience-item.highlight-experience { border-left-color: var(--primary-color); }
+    .experience-item.highlight-experience { border-left-color: var(--highlight-experience-bg); } /* Use highlight bg for border */
 
     /* Education Extra Small */
     .education-section { padding-top: 40px; padding-bottom: 40px; }
@@ -1440,3 +1691,4 @@ i { /* Basic icon styling */
     .footer-links { gap: 10px 15px; }
     .back-to-top-btn { bottom: 15px; right: 15px; width: 35px; height: 35px; font-size: 1.1rem; }
 }
+
