@@ -2,6 +2,9 @@
 
 A modern, responsive personal resume website built with HTML and CSS, featuring clean design, smooth animations, and mobile-first approach.
 
+## Link to the website:
+https://tahcin.gradestone.io
+
 ## Project Overview
 
 This website serves as a digital resume and portfolio, showcasing professional experience, education, and project highlights. The site demonstrates the application of advanced CSS concepts including flexbox layouts, responsive design, and custom animations.
@@ -29,7 +32,7 @@ This website serves as a digital resume and portfolio, showcasing professional e
 ## Project Structure
 ```
 ResumeSite/
-├── index.html          # Main HTML structure
+├── index.html         # Main HTML structure
 ├── style.css          # CSS styling and animations
 ├── script.js          # JavaScript functionality
 ├── photo.png          # Profile photo
@@ -38,12 +41,6 @@ ResumeSite/
 ├── proj3.png
 └── resume.pdf         # Downloadable resume
 ```
-
-## Setup Instructions
-1. Clone the repository
-2. Open `index.html` in a modern web browser
-3. No additional setup required - all assets are included
-
 ## Submission Details
 
 ### CSS Improvements Made
