@@ -55,6 +55,8 @@ ResumeSite/
 - Structure maintains original organization with added CSS enhancements
 - Fully responsive and tested across different devices
 
+Link to Github Repository: https://github.com/tahcin/tahcin.github.io
+
 ## Development Notes
 - Built with vanilla HTML and CSS to demonstrate core styling capabilities
 - Focused on clean, maintainable code structure
